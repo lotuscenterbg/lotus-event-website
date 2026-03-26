@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Center | Lotus Hotel & Event Center – Конференции и Събития Варна</title>
+<meta name="description" content="Модерен ивент център във Варна. Конференции, форуми, fashion show, корпоративни и развлекателни събития. Директна резервация.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lotus-hotel.bg/event-center">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+  РЕДАКТИРУЕМЫЕ ДАННЫЕ — ИЗМЕНЯЙТЕ ТОЛЬКО ЭТУ СЕКЦИЮ
+  Все мероприятия, залы и контакты редактируются здесь.
+  ============================================================ -->
+<script>
+/* =========================================================
+   НАСТРОЙКИ САЙТА — РЕДАКТИРУЙТЕ ЗДЕСЬ
+   ========================================================= */
+
+const SITE_CONFIG = {
+  phone: "+359879321838",
+  phoneDisplay: "0879 321 838",
+  email: "events@lotuscenter.bg",
+  leadInboxEmail: "",
+  registrationWebhookUrl: "",
+  seatingWebhookUrl: "",
+  address: "ул. Арх. Стефан Венедикт Попов 2, Варна",
+  instagram: "https://www.instagram.com/lotus.event_center/",
+  facebook: "https://www.facebook.com/lotuseventcenter.varna"
+};
+
+const HERO_IMAGES = {
+  conferences: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/conference2.webp",
+  events: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/shows.webp",
+  halls: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/rental.png"
+};
+
+const CONFERENCE_GALLERY = [
+  {
+    image: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/conference2.webp",
+    title: "Сцена & публика",
+    caption: "Keynote атмосфера и представителен формат",
+    variant: "featured"
+  },
+  {
+    image: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/Conference/glasnaind.jpg",
+    title: "Networking зона",
+    caption: "Разговори, контакти и вечерна програма",
+    variant: "standard"
+  },
+  {
+    image: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/Fibrobord.jpg",
+    title: "Презентации",
+    caption: "Продуктови премиери и професионални срещи",
+    variant: "square"
+  },
+  {
+    image: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/Conference/china-europe-security.png",
+    title: "Международен формат",
+    caption: "Форуми, делегации и гала прием",
+    variant: "tall"
+  }
+];
+
+const EVENTS_GALLERY = [
+  {
+    image: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/shows.webp",
+    title: "Сценични формати",
+    caption: "Шоу, осветление и публика",
+    variant: "featured"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80",
+    title: "Мода & подиум",
+    caption: "Fashion вечер и артистична постановка",
+    variant: "standard"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&q=80",
+    title: "Гала вечер",
+    caption: "Музика, вечеря и концертна атмосфера",
+    variant: "square"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1531913764164-f85c52e6e654?w=1200&q=80",
+    title: "Коктейл & арт",
+    caption: "По-интимни събития и вечерни формати",
+    variant: "tall"
+  }
+];
+
+/* =========================================================
+   ЗАЛЫ — добавляйте/редактируйте залы
+   ========================================================= */
+const HALLS = [
+  {
+    id: "grand",
+    name: "Grand Hall",
+    nameBg: "Голям салон",
+    capacity: "до 300 гости",
+    area: "450 кв.м",
+    desc: "Представителен зал с естествено осветление, панорамни прозорци и пълно техническо оборудване.",
+    features: ["Проектор 4K", "Озвучителна система", "Климатична инсталация", "Рampа за инвалиди", "Фоайе", "Гардероб"]
+  },
+  {
+    id: "crystal",
+    name: "Crystal Room",
+    nameBg: "Кристална зала",
+    capacity: "до 120 гости",
+    area: "200 кв.м",
+    desc: "Елегантна зала с кристални люстри — перфектна за бизнес срещи и малки гала вечери.",
+    features: ["LED екран", "Видеоконферентна система", "Климатик", "Кетъринг кухня", "VIP вход"]
+  },
+  {
+    id: "board",
+    name: "Board Room",
+    nameBg: "Борд зала",
+    capacity: "до 20 гости",
+    area: "60 кв.м",
+    desc: "Представителна конферентна зала за малки делови срещи с изцяло оборудван бизнес център.",
+    features: ["86\" интерактивен дисплей", "Видеовръзка", "Климатик", "Персонален асистент"]
+  }
+];
+
+/* =========================================================
+   КОНФЕРЕНЦИИ & ФОРУМИ — добавляйте/редактируйте событи
+   ========================================================= */
+const CONFERENCES = [
+  {
+    id: "conf1",
+    title: "Fibrobord за архитекти",
+    subtitle: "Специална презентация",
+    date: "20 Март 2026",
+    time: "18:00",
+    hall: "Grand Hall",
+    capacity: "300 места",
+    price: "10 €",
+    badge: "Предстоящо",
+    badgeType: "upcoming", // upcoming | soldout | free
+    desc: "Специална презентация за архитекти, проектанти и инвеститори, посветена на фиброциментовите решения, фасадните приложения и устойчивата съвременна визия.",
+    detailsHtml: "Специална презентация за архитекти, проектанти и инвеститори с фокус върху практичните решения на Fibrobord за модерни фасади и интериорни приложения.<br><br><strong>Теми:</strong><br>1. Приложение на фиброциментовите системи в съвременната архитектура<br>2. Повърхности, текстури и цветови решения за по-отличима визия<br>3. Монтажни детайли, дълготрайност и поддръжка при реални проекти<br>4. Комбиниране на естетика, функционалност и устойчивост във фасадния дизайн<br><br>След официалната част е предвиден коктейл и networking с гости от архитектурния и строителния сектор.",
+    image: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/Fibrobord.jpg",
+    tags: ["Строителство", "Архитектура", "Иновации"]
+  },
+  {
+    id: "conf2",
+    title: "Гласът на индустрията",
+    subtitle: "Първа годишнина / Live Event",
+    date: "28 Март 2026",
+    time: "18:00",
+    hall: "Crystal Room",
+    capacity: "120 места",
+    price: "10 €",
+    badge: "Регистрация отворена",
+    badgeType: "register",
+    desc: "Юбилейно live събитие по повод първата годишнина на „Гласът на индустрията“ с подкаст на живо, презентации и срещи с предприемачи, инвеститори и професионалисти. От 20:00 ч. вечерната програма продължава с музика на живо, танцово шоу и специални участия на Денис Потриваев и Атанас Кателиев. Входът е със свободна консумация, храна и напитки.",
+    detailsHtml: "Юбилейно live събитие по повод първата годишнина на „Гласът на индустрията“ — подкастът за хора, които изграждат нещо.<br><br><strong>Програма:</strong><br>1. 18:00 – Регистрация и нетуъркинг<br>2. 19:00 – Подкаст на живо: специални гости и дискусия<br>3. 20:00 – Музика на живо и танцово шоу<br>4. Специални участия: Денис Потриваев и Атанас Кателиев<br><br><strong>Включено в билета:</strong> Свободна консумация, храна и напитки за цялата вечер.",
+    image: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/Conference/glasnaind.jpg",
+    tags: ["Индустрия", "Бизнес", "Нетуъркинг"]
+  },
+  {
+    id: "conf3",
+    title: "Industrial Power Forum",
+    subtitle: "IPC Bulgaria · China – Korea – Türkiye – EU",
+    date: "17–18 Април 2026",
+    time: "17:00 – 19:30",
+    hall: "Grand Hall",
+    capacity: "250 места",
+    price: "10 €",
+    badge: "Предстоящо",
+    badgeType: "upcoming",
+    desc: "Международен бизнес форум, който събира индустриални, производствени и технологични лидери от Азия и Европа за разговор за новите модели на производство, инвестиции и стратегически партньорства.",
+    detailsHtml: "Международна платформа на IPC Bulgaria, която свързва водещи бизнес представители от Китай, Южна Корея и Турция с европейската индустриална и инвестиционна екосистема.<br><br><strong>Основни теми:</strong><br>1. Нови технологии в индустриалното производство<br>2. Интелигентно производство и автоматизационни системи<br>3. Търговски и инвестиционни възможности между Азия и Европа<br>4. Екосистеми за високотехнологично производство<br>5. Международни индустриални партньорства<br><br><strong>Участници:</strong><br>Индустриални и производствени компании, технологични компании и международни инвеститори.<br><br><strong>Гала вечеря:</strong> 20:00 – 22:30",
+    image: "https://ik.imagekit.io/cxsglq1fm/Event%20Center/Conference/china-europe-security.png",
+    tags: ["Индустрия", "Бизнес", "Инвестиции", "Международни отношения"]
+  }
+];
+
+/* =========================================================
+   СПЕЦИАЛНИ СЪБИТИЯ — шоу, fashion, корпоративни и др.
+   ========================================================= */
+const EVENTS = [
+  {
+    id: "ev1",
+    title: "Varna Fashion Night",
+    subtitle: "Есенна колекция 2025",
+    date: "4 Април 2026",
+    time: "19:00 – 23:00",
+    hall: "Grand Hall",
+    capacity: "200 места",
+    price: "от 60 лв.",
+    badge: "Fashion",
+    badgeType: "fashion",
+    seatingEnabled: true,
+    desc: "Ексклузивно дефиле на водещи български дизайнери. Подиум, живо шоу, after party. Dress code: Smart Elegant.",
+    image: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80",
+    tags: ["Мода", "Дефиле", "After Party"]
+  },
+  {
+    id: "ev2",
+    title: "Гала вечеря & Концерт",
+    subtitle: "Ново Лято",
+    date: "11 Април 2026",
+    time: "20:00 – 01:00",
+    hall: "Grand Hall",
+    capacity: "280 места",
+    price: "от 90 лв.",
+    badge: "Гала",
+    badgeType: "gala",
+    seatingEnabled: true,
+    desc: "Тържествена вечеря с жива музика и концерт. Изискано меню от шеф готвача на Lotus Restaurant.",
+    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
+    tags: ["Музика", "Концерт", "Гала"]
+  },
+  {
+    id: "ev3",
+    title: "Корпоративно парти",
+    subtitle: "Персонализирани формати",
+    date: "При заявка",
+    time: "По договаряне",
+    hall: "По избор",
+    capacity: "до 300 гости",
+    price: "По запитване",
+    badge: "Корпоративно",
+    badgeType: "corporate",
+    desc: "Организираме корпоративни партита, тийм билдинг и официални вечери по индивидуален проект — от концепция до изпълнение.",
+    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80",
+    tags: ["Корпоративно", "Тийм билдинг", "Custom"]
+  },
+  {
+    id: "ev4",
+    title: "Арт изложба & Вернисаж",
+    subtitle: "Съвременно изкуство",
+    date: "25 Април 2026",
+    time: "18:00 – 21:00",
+    hall: "Crystal Room",
+    capacity: "120 места",
+    price: "Свободен вход",
+    badge: "Арт",
+    badgeType: "free",
+    desc: "Изложба на съвременни художници от Черноморието. Вернисаж с коктейл и живи музикални изпълнения.",
+    image: "https://images.unsplash.com/photo-1531913764164-f85c52e6e654?w=800&q=80",
+    tags: ["Изкуство", "Вернисаж", "Коктейл"]
+  }
+];
+
+/* =========================================================
+   ПАКЕТИ ЗА НАЕМ — редактируйте цены и включения
+   ========================================================= */
+const PACKAGES = [
+  {
+    name: "Бизнес",
+    nameEn: "Business",
+    price: "от 800 лв.",
+    unit: "/ ден",
+    highlight: false,
+    includes: [
+      "Зала до 60 кв.м (до 20 гости)",
+      "Техническо оборудване",
+      "Кафе пауза × 2",
+      "Координатор",
+      "Паркинг"
+    ]
+  },
+  {
+    name: "Събитие",
+    nameEn: "Event",
+    price: "от 2 400 лв.",
+    unit: "/ ден",
+    highlight: true,
+    includes: [
+      "Зала до 200 кв.м (до 120 гости)",
+      "Пълно AV оборудване",
+      "Кетъринг по избор",
+      "Декорация (базова)",
+      "Event мениджър",
+      "Паркинг + VIP вход",
+      "Промо в соц. мрежи"
+    ]
+  },
+  {
+    name: "Гранд",
+    nameEn: "Grand",
+    price: "По запитване",
+    unit: "",
+    highlight: false,
+    includes: [
+      "Grand Hall (до 300 гости)",
+      "Пълна техника + осветление",
+      "Кетъринг от Lotus Restaurant",
+      "Пълна декорация",
+      "Dedicated мениджър",
+      "Фотограф",
+      "VIP протокол",
+      "Индивидуална концепция"
+    ]
+  }
+];
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#c8a96e;--gold-light:#f0d898;--gold-dark:#9a7228;
+  --gold-dim:rgba(200,169,110,0.65);--gold-faint:rgba(200,169,110,0.15);
+  --bg:#000;--text:rgba(255,255,255,0.82);
+  --gold-gradient:linear-gradient(135deg,#c8a96e 0%,#f0d898 45%,#b8893e 75%,#e0c070 100%);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;-webkit-text-fill-color:var(--text)}
+button{cursor:pointer}
+
+.mobile-menu a,.mobile-menu .mob-dropdown-label{opacity:0;transform:translateX(18px);will-change:opacity,transform}
+.mobile-menu.open a,.mobile-menu.open .mob-dropdown-label{animation:mobFade .4s ease forwards;animation-delay:.2s}
+.mobile-menu.open .mob-phone{animation:mobFade .4s ease forwards;animation-delay:.2s}
+@keyframes mobFade{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+
+/* ── HEADER ── */
+header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 48px;background:linear-gradient(to bottom,rgba(0,0,0,0.85),transparent)}
+.h-logo a{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:6px;text-decoration:none;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-logo span{display:block;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:200;letter-spacing:2px;color:var(--gold-dim);-webkit-text-fill-color:var(--gold-dim);margin-top:2px}
+nav{display:flex;gap:28px;align-items:center}
+nav a{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:300;letter-spacing:1.5px;color:var(--gold-dim);-webkit-text-fill-color:var(--gold-dim);text-decoration:none;text-transform:uppercase;transition:color .25s}
+nav a:hover,nav a.active{color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.h-book{font-size:10px!important;border:1px solid rgba(200,169,110,0.4);padding:8px 18px;color:var(--gold)!important;-webkit-text-fill-color:var(--gold)!important;transition:background .3s,border-color .3s!important}
+.h-book:hover{background:var(--gold-faint)!important;border-color:var(--gold)!important}
+.h-social{display:flex;gap:16px;align-items:center;margin-left:16px}
+.h-social-link{display:flex;align-items:center;opacity:0.7;transition:opacity .25s}
+.h-social-link:hover{opacity:1}
+
+/* ── HAMBURGER ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:200;background:none;border:none}
+.hamburger span{display:block;width:24px;height:1px;background:var(--gold);transition:all .3s ease}
+.hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* ── MOBILE MENU ── */
+.mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:140;display:none}
+.mob-overlay.open{display:block}
+.mobile-menu{position:fixed;top:0;right:-80%;width:72%;max-width:300px;height:100vh;background:linear-gradient(to bottom,rgba(15,15,15,0.75) 0%,rgba(10,10,10,0.55) 70%,rgba(5,5,5,0.25) 100%);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-left:none;z-index:150;display:flex;flex-direction:column;justify-content:flex-start;padding:90px 28px 40px;transition:right .45s cubic-bezier(.77,0,.18,1);overflow-y:auto}
+.mobile-menu.open{right:0}
+.mobile-menu a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;letter-spacing:2px;color:rgba(255,255,255,0.7);-webkit-text-fill-color:rgba(255,255,255,0.7);text-decoration:none;text-transform:uppercase;padding:11px 0;border-bottom:none;transition:color .2s;display:block}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.mobile-menu .mob-dropdown-label{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;letter-spacing:2px;color:rgba(255,255,255,0.7);-webkit-text-fill-color:rgba(255,255,255,0.7);text-transform:uppercase;padding:11px 0;border-bottom:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.mobile-menu .mob-dropdown-label::after{content:'▾';font-size:10px;transition:transform .2s}
+.mobile-menu .mob-dropdown-label.open::after{transform:rotate(180deg)}
+.mobile-menu .mob-dropdown-label.active{color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.mob-sub{display:none;flex-direction:column}
+.mob-sub.open{display:flex}
+.mob-sub a{font-size:11px;letter-spacing:1.5px;padding:8px 0 8px 14px;color:rgba(255,255,255,0.45);-webkit-text-fill-color:rgba(255,255,255,0.45);border-bottom:none}
+.mob-contacts{margin-top:28px;padding-top:20px;border-top:none;display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+.mobile-menu .mob-phone{font-family:'Cormorant Garamond',serif!important;font-size:20px!important;font-weight:300;letter-spacing:2.5px;line-height:1;color:var(--gold)!important;-webkit-text-fill-color:var(--gold)!important;text-decoration:none;text-transform:none;padding:0;margin-bottom:4px;display:block}
+.mob-social{display:flex;gap:22px;align-items:center;justify-content:center}
+.mob-social-link{opacity:0.85;transition:opacity .25s,transform .25s;display:flex;align-items:center;padding:6px;background:rgba(200,169,110,0.06);border-radius:8px}
+.mob-social-link:hover{opacity:1;transform:translateY(-2px)}
+.mob-social-link svg{width:24px;height:24px}
+
+/* ── HERO ── */
+.hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://ik.imagekit.io/cxsglq1fm/Event%20Center/conference2.webp') center/cover no-repeat;transform:scale(1.05);animation:hzoom 5s ease forwards;transition:opacity .35s ease}
+.hero-bg.is-switching{opacity:0.72}
+@keyframes hzoom{from{transform:scale(1.05)}to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.3) 40%,rgba(0,0,0,0.8) 85%,#000 100%)}
+.hero-content{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;animation:fadeup .9s ease 0.4s forwards;padding-top:80px;width:100%;height:100%;justify-content:center}
+.hero-logo{width:56px;height:56px;object-fit:contain;opacity:0.9;margin-bottom:14px;filter:drop-shadow(0 0 10px rgba(200,169,110,0.3))}
+.hero-eyebrow{font-size:11px;font-weight:400;letter-spacing:1.5px;color:rgba(255,255,255,0.5);-webkit-text-fill-color:rgba(255,255,255,0.5);text-transform:uppercase;margin-bottom:20px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,88px);font-weight:300;letter-spacing:14px;line-height:1;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;padding-left:14px}
+.hero-sub{font-size:11px;font-weight:400;letter-spacing:2px;color:rgba(255,255,255,0.45);-webkit-text-fill-color:rgba(255,255,255,0.45);margin-top:10px;margin-bottom:24px;text-transform:uppercase}
+.hero-desc{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;font-style:italic;color:rgba(255,255,255,0.7);-webkit-text-fill-color:rgba(255,255,255,0.7);letter-spacing:1px;max-width:500px;margin:0 auto 32px;line-height:1.6}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-hero{display:inline-flex;align-items:center;justify-content:center;width:220px;text-align:center;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:300;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;padding:15px 0;transition:opacity .3s,background .3s,border-color .3s}
+.btn-hero-gold{color:#000;-webkit-text-fill-color:#000;background:var(--gold-gradient)}
+.btn-hero-gold:hover{opacity:0.85}
+.btn-hero-outline{color:var(--gold);-webkit-text-fill-color:var(--gold);border:1px solid rgba(200,169,110,0.5)}
+.btn-hero-outline:hover{background:var(--gold-faint);border-color:var(--gold)}
+.scroll-ind{position:static;margin-top:auto;padding-bottom:36px;padding-top:24px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeup .6s ease 1.5s forwards}
+.scroll-ind span{font-size:11px;font-weight:400;letter-spacing:1.5px;color:var(--gold-dim);-webkit-text-fill-color:var(--gold-dim);text-transform:uppercase}
+.scroll-line{width:1px;height:64px;background:linear-gradient(to bottom,var(--gold-dim),transparent);animation:scrollpulse 1.8s ease infinite}
+@keyframes scrollpulse{0%,100%{opacity:0.4;transform:scaleY(0.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ── TAB SWITCHER ── */
+.tab-section{background:#050505;padding:0;position:relative;z-index:1;border-bottom:1px solid rgba(200,169,110,0.1)}
+.tab-inner{max-width:1200px;margin:0 auto;display:flex}
+.tab-btn{flex:1;background:none;border:none;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:300;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);-webkit-text-fill-color:rgba(255,255,255,0.35);padding:20px 0;cursor:pointer;transition:color .3s,background .3s;position:relative;border-right:1px solid rgba(200,169,110,0.08)}
+.tab-btn:last-child{border-right:none}
+.tab-btn::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold-gradient);opacity:0;transition:opacity .3s}
+.tab-btn.active{color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.tab-btn.active::after{opacity:1}
+.tab-btn:hover:not(.active){color:rgba(255,255,255,0.6);-webkit-text-fill-color:rgba(255,255,255,0.6);background:rgba(200,169,110,0.03)}
+.tab-icon{display:flex;align-items:center;justify-content:center;width:42px;height:42px;margin:0 auto 9px;border-radius:50%;border:1px solid rgba(200,169,110,0.16);background:radial-gradient(circle at 50% 20%,rgba(240,216,152,0.18),rgba(200,169,110,0.06) 58%,rgba(0,0,0,0) 100%);color:rgba(255,255,255,0.72);transition:transform .3s,border-color .3s,color .3s,box-shadow .3s}
+.tab-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.tab-btn.active .tab-icon{color:var(--gold);border-color:rgba(200,169,110,0.45);box-shadow:0 0 22px rgba(200,169,110,0.14),inset 0 0 18px rgba(240,216,152,0.08);transform:translateY(-1px)}
+.tab-btn:hover .tab-icon{color:rgba(255,255,255,0.92);border-color:rgba(200,169,110,0.3)}
+
+/* ── SECTIONS ── */
+section{padding:70px 48px}
+.section-label{font-size:11px;font-weight:400;letter-spacing:1.2px;color:rgba(255,255,255,0.45);-webkit-text-fill-color:rgba(255,255,255,0.45);text-transform:uppercase;margin-bottom:16px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,56px);font-weight:300;font-style:italic;letter-spacing:2.5px;background:linear-gradient(135deg,#c8a96e 0%,#f0d898 50%,#9a7228 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.gold-line{width:60px;height:1px;margin:24px 0;background:linear-gradient(90deg,rgba(200,169,110,0.35),transparent)}
+.section-text{font-size:15px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.68);-webkit-text-fill-color:rgba(255,255,255,0.68);max-width:560px}
+
+/* ── PANEL TOGGLE ── */
+.panel{display:none}
+.panel.active{display:block}
+
+/* ── EVENTS HEADER ── */
+.events-header{text-align:center;max-width:680px;margin:0 auto 56px}
+.events-header .gold-line{margin:24px auto}
+.events-header .section-text{margin:0 auto}
+.conference-filters{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:1100px;margin:0 auto 28px}
+.conference-filter-btn{appearance:none;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.55);-webkit-text-fill-color:rgba(255,255,255,0.55);font-family:'Montserrat',sans-serif;font-size:9px;font-weight:300;letter-spacing:1.5px;text-transform:uppercase;padding:10px 16px;cursor:pointer;transition:background .25s,border-color .25s,color .25s,transform .25s}
+.conference-filter-btn:hover{border-color:rgba(200,169,110,0.28);color:#fff;-webkit-text-fill-color:#fff;transform:translateY(-1px)}
+.conference-filter-btn.active{background:var(--gold-gradient);border-color:transparent;color:#000;-webkit-text-fill-color:#000}
+.conference-empty{max-width:1100px;margin:0 auto;padding:36px 28px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);font-size:13px;line-height:1.7;color:rgba(255,255,255,0.58);-webkit-text-fill-color:rgba(255,255,255,0.58);text-align:center}
+
+/* ── EVENT CARDS ── */
+.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;max-width:1300px;margin:0 auto}
+.event-card{position:relative;overflow:hidden;cursor:pointer;height:540px;background:#0a0a0a}
+.event-card:first-child:nth-last-child(odd){grid-column:1/-1;height:460px}
+.event-img{width:100%;height:100%;object-fit:cover;transition:transform .7s,filter .7s;filter:brightness(0.75)}
+.event-card:hover .event-img{transform:scale(1.04);filter:brightness(0.55)}
+.event-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.2) 55%,transparent 100%)}
+.event-badge{position:absolute;top:24px;left:24px;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;padding:6px 14px;border:1px solid}
+.badge-upcoming{color:#f1cc81;-webkit-text-fill-color:#f1cc81;border-color:rgba(241,204,129,0.45);background:rgba(53,35,5,0.58)}
+.badge-register{color:#8ef0d3;-webkit-text-fill-color:#8ef0d3;border-color:rgba(142,240,211,0.48);background:rgba(6,49,46,0.58)}
+.badge-fashion{color:#f2b5cf;-webkit-text-fill-color:#f2b5cf;border-color:rgba(242,181,207,0.48);background:rgba(63,18,39,0.55)}
+.badge-gala{color:#ead3a6;-webkit-text-fill-color:#ead3a6;border-color:rgba(234,211,166,0.44);background:rgba(58,43,17,0.52)}
+.badge-corporate{color:#9fc7f6;-webkit-text-fill-color:#9fc7f6;border-color:rgba(159,199,246,0.46);background:rgba(12,31,57,0.56)}
+.badge-completed{color:rgba(255,255,255,0.38);-webkit-text-fill-color:rgba(255,255,255,0.38);border-color:rgba(255,255,255,0.12);background:rgba(20,20,20,0.7)}
+.badge-soldout{color:rgba(255,255,255,0.62);-webkit-text-fill-color:rgba(255,255,255,0.62);border-color:rgba(255,255,255,0.22);background:rgba(34,34,34,0.56)}
+.badge-free{color:#98e6b8;-webkit-text-fill-color:#98e6b8;border-color:rgba(152,230,184,0.48);background:rgba(13,54,34,0.54)}
+.event-info{position:absolute;bottom:0;left:0;right:0;padding:40px;transform:translateY(0);transition:transform .4s}
+.event-meta{display:flex;gap:20px;margin-bottom:14px;flex-wrap:wrap}
+.event-meta-item{font-size:9px;letter-spacing:1.5px;color:var(--gold-dim);-webkit-text-fill-color:var(--gold-dim);text-transform:uppercase;display:flex;align-items:center;gap:5px}
+.event-meta-item::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--gold-dim)}
+.event-name{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,38px);font-weight:300;font-style:italic;letter-spacing:2px;color:#fff;-webkit-text-fill-color:#fff;line-height:1.05;margin-bottom:6px}
+.event-name span{display:block;font-size:0.65em;letter-spacing:1.5px;color:rgba(255,255,255,0.45);-webkit-text-fill-color:rgba(255,255,255,0.45);font-style:normal}
+.event-desc{font-size:13px;font-weight:300;color:rgba(255,255,255,0.66);-webkit-text-fill-color:rgba(255,255,255,0.66);line-height:1.6;margin:10px 0 16px;max-width:460px;opacity:1;transform:translateY(0);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.event-footer{display:flex;align-items:center;justify-content:space-between;opacity:1;transform:translateY(0)}
+.event-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px}
+.event-tags{display:flex;gap:8px;flex-wrap:wrap}
+.event-tag{font-size:8px;letter-spacing:1.5px;color:rgba(255,255,255,0.52);-webkit-text-fill-color:rgba(255,255,255,0.52);text-transform:uppercase;border:1px solid rgba(255,255,255,0.14);padding:4px 10px}
+.event-btn{display:inline-block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);-webkit-text-fill-color:var(--gold);border-bottom:1px solid rgba(200,169,110,0.4);padding-bottom:3px;text-decoration:none;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:'Montserrat',sans-serif;font-weight:300;transition:border-color .3s}
+.event-btn:hover{border-color:var(--gold)}
+
+.visual-gallery{margin-top:42px}
+.visual-gallery-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+.visual-gallery-kicker{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.34);-webkit-text-fill-color:rgba(255,255,255,0.34)}
+.visual-gallery-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,34px);font-weight:300;font-style:italic;color:#fff;-webkit-text-fill-color:#fff;letter-spacing:1.5px;line-height:1.05}
+.visual-gallery-note{font-size:12px;line-height:1.7;color:rgba(255,255,255,0.46);-webkit-text-fill-color:rgba(255,255,255,0.46);max-width:460px}
+.conference-gallery-ring{position:relative;max-width:1240px;margin:0 auto}
+.conference-ring-stage{position:relative;height:520px;overflow:hidden}
+.conference-ring-slide{position:absolute;top:50%;left:50%;width:min(62vw,640px);height:420px;transform-origin:center center;border:none;background:#0a0a0a;cursor:pointer;opacity:0;pointer-events:none;transition:transform .55s ease,opacity .4s ease,filter .4s ease,box-shadow .45s ease}
+.conference-ring-slide img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.84)}
+.conference-ring-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.22) 56%,rgba(0,0,0,0.04) 100%)}
+.conference-ring-slide .gallery-copy{padding:26px 28px 24px}
+.conference-ring-slide.is-active{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1);z-index:4;box-shadow:0 28px 70px rgba(0,0,0,0.38)}
+.conference-ring-slide.is-prev{opacity:0.64;pointer-events:auto;transform:translate(calc(-50% - 36vw),-50%) scale(0.74);z-index:2;filter:saturate(0.82)}
+.conference-ring-slide.is-next{opacity:0.64;pointer-events:auto;transform:translate(calc(-50% + 36vw),-50%) scale(0.74);z-index:2;filter:saturate(0.82)}
+.conference-ring-slide.is-hidden-left{opacity:0;transform:translate(calc(-50% - 58vw),-50%) scale(0.58);z-index:1}
+.conference-ring-slide.is-hidden-right{opacity:0;transform:translate(calc(-50% + 58vw),-50%) scale(0.58);z-index:1}
+.conference-ring-slide.is-prev img,.conference-ring-slide.is-next img{filter:brightness(0.62)}
+.conference-ring-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:18px}
+.conference-ring-btn{width:48px;height:48px;border:1px solid rgba(200,169,110,0.24);background:rgba(255,255,255,0.03);color:var(--gold);-webkit-text-fill-color:var(--gold);font-size:18px;cursor:pointer;transition:background .25s ease,border-color .25s ease,transform .25s ease}
+.conference-ring-btn:hover{background:var(--gold-faint);border-color:rgba(200,169,110,0.45);transform:translateY(-1px)}
+.conference-ring-dots{display:flex;align-items:center;gap:8px}
+.conference-ring-dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,0.18);cursor:pointer;transition:transform .25s ease,background .25s ease}
+.conference-ring-dot.active{background:var(--gold);transform:scale(1.15)}
+.gallery-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:3px}
+.gallery-tile{position:relative;overflow:hidden;min-height:220px;background:#080808;border:none;cursor:pointer}
+.gallery-tile.featured{grid-column:span 7;grid-row:span 2;min-height:446px}
+.gallery-tile.standard{grid-column:span 5}
+.gallery-tile.square{grid-column:span 4;min-height:220px}
+.gallery-tile.tall{grid-column:span 5;min-height:280px}
+.gallery-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease,filter .7s ease;filter:brightness(0.82)}
+.gallery-tile:hover img{transform:scale(1.04);filter:brightness(0.62)}
+.gallery-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.18) 58%,rgba(0,0,0,0.02) 100%)}
+.gallery-copy{position:absolute;left:0;right:0;bottom:0;padding:24px 24px 22px;z-index:1}
+.gallery-copy strong{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,34px);font-weight:300;font-style:italic;color:#fff;-webkit-text-fill-color:#fff;line-height:1.02}
+.gallery-copy span{display:block;margin-top:6px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.48);-webkit-text-fill-color:rgba(255,255,255,0.48)}
+.gallery-tile:not(.featured) .gallery-copy strong{font-size:24px}
+
+.gallery-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:520;display:flex;align-items:center;justify-content:center;padding:28px;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.gallery-lightbox.open{opacity:1;pointer-events:auto}
+.gallery-lightbox-inner{position:relative;width:min(1120px,100%);max-height:92vh;background:#050505;border:1px solid rgba(255,255,255,0.08);overflow:hidden}
+.gallery-lightbox-img{display:block;width:100%;max-height:78vh;object-fit:contain;background:#020202}
+.gallery-lightbox-copy{padding:18px 22px 20px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))}
+.gallery-lightbox-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;font-style:italic;color:#fff;-webkit-text-fill-color:#fff;line-height:1.05}
+.gallery-lightbox-caption{margin-top:6px;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,0.42);-webkit-text-fill-color:rgba(255,255,255,0.42)}
+.gallery-lightbox-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border:none;background:rgba(0,0,0,0.38);color:#fff;-webkit-text-fill-color:#fff;font-size:22px;cursor:pointer;z-index:1}
+
+.conference-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px;align-items:stretch}
+.conference-card{position:relative;display:flex;flex-direction:column;min-height:620px;background:rgba(255,255,255,0.03);border:none;overflow:hidden;transition:background .35s,transform .45s,box-shadow .45s}
+.conference-card:hover,.conference-card.is-peek,.conference-card.is-expanded{background:rgba(255,255,255,0.05);transform:none;box-shadow:0 24px 60px rgba(0,0,0,0.28)}
+.conference-card-featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(360px,0.9fr);min-height:560px}
+.conference-card-featured .conference-media{height:100%}
+.conference-card-featured .conference-content{padding:36px 40px}
+.conference-media{position:relative;height:300px;overflow:hidden;background:#060606}
+.conference-img{width:100%;height:100%;object-fit:cover;transition:transform .7s,filter .7s;filter:brightness(0.78)}
+.conference-card:hover .conference-img,.conference-card.is-peek .conference-img,.conference-card.is-expanded .conference-img{transform:scale(1.04);filter:brightness(0.6)}
+.conference-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.28) 56%,transparent 100%)}
+.conference-badge{left:24px;top:24px}
+.conference-content{display:flex;flex-direction:column;gap:18px;padding:28px 30px 30px;flex:1}
+.conference-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.conference-date-card,.conference-schedule,.conference-price-card{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-width:0;width:100%;min-height:108px;padding:14px 12px;border:1px solid rgba(200,169,110,0.12);background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))}
+.conference-date-card{background:linear-gradient(180deg,rgba(200,169,110,0.12),rgba(200,169,110,0.03))}
+.conference-date-day{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;line-height:0.88;letter-spacing:1px;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.conference-date-rest,.conference-schedule-label,.conference-price-caption{margin-top:8px;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,0.5);-webkit-text-fill-color:rgba(255,255,255,0.5)}
+.conference-time-display,.conference-price-inline{display:flex;align-items:flex-start;justify-content:center;gap:2px;font-family:'Cormorant Garamond',serif;font-weight:300;line-height:0.92;transform:translateY(6px)}
+.conference-time-display{color:#fff;-webkit-text-fill-color:#fff;white-space:nowrap}
+.conference-time-hour{font-size:42px;line-height:0.9}
+.conference-time-minutes{font-size:24px;line-height:1.1;padding-top:10px}
+.conference-price-inline{color:#fff;-webkit-text-fill-color:#fff;white-space:nowrap}
+.conference-price-inline .conference-price-amount{font-size:44px}
+.conference-price-inline .conference-price-currency{font-size:24px;line-height:1.1;padding-top:15px}
+.conference-name{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.2vw,40px);font-weight:300;font-style:italic;letter-spacing:2px;color:#fff;-webkit-text-fill-color:#fff;line-height:1.05}
+.conference-name span{display:block;margin-top:14px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;letter-spacing:2.2px;color:rgba(255,255,255,0.5);-webkit-text-fill-color:rgba(255,255,255,0.5);font-style:normal;text-transform:uppercase}
+.conference-summary{font-size:14px;line-height:1.75;color:rgba(255,255,255,0.62);-webkit-text-fill-color:rgba(255,255,255,0.62)}
+.conference-tags{display:flex;gap:8px;flex-wrap:wrap}
+.conference-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.conference-action-group{display:flex;gap:10px;flex-wrap:wrap}
+.conference-primary-btn,.conference-secondary-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:300;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:opacity .3s,background .3s,border-color .3s,color .3s}
+.conference-primary-btn{border:none;background:var(--gold-gradient);color:#000;-webkit-text-fill-color:#000}
+.conference-primary-btn:hover{opacity:0.86}
+.conference-secondary-btn{border:1px solid rgba(200,169,110,0.3);background:none;color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.conference-secondary-btn:hover{background:var(--gold-faint);border-color:var(--gold)}
+.conference-details{max-height:0;overflow:hidden;opacity:0;transform:translateY(8px);transition:max-height .45s ease,opacity .3s ease,transform .3s ease,padding-top .3s ease,border-color .3s ease}
+.conference-card.is-expanded .conference-details{max-height:760px;opacity:1;transform:translateY(0);padding-top:18px;border-top:1px solid rgba(255,255,255,0.08)}
+.conference-detail-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.34);-webkit-text-fill-color:rgba(255,255,255,0.34);margin-bottom:12px}
+.conference-detail-text{font-size:13px;line-height:1.75;color:rgba(255,255,255,0.52);-webkit-text-fill-color:rgba(255,255,255,0.52)}
+
+/* ── HALLS ── */
+.halls-section{background:#050505;padding:70px 48px}
+.halls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:1300px;margin:48px auto 0}
+.hall-card{background:rgba(200,169,110,0.03);border:1px solid rgba(200,169,110,0.1);padding:36px;transition:border-color .3s,background .3s;position:relative;overflow:hidden}
+.hall-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold-gradient);opacity:0;transition:opacity .3s}
+.hall-card:hover{border-color:rgba(200,169,110,0.25);background:rgba(200,169,110,0.06)}
+.hall-card:hover::before{opacity:1}
+.hall-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;font-style:italic;letter-spacing:2px;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+.hall-name-bg{font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.35);-webkit-text-fill-color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:24px}
+.hall-specs{display:flex;gap:20px;margin-bottom:20px;padding:16px 0;border-top:1px solid rgba(200,169,110,0.08);border-bottom:1px solid rgba(200,169,110,0.08)}
+.hall-spec{display:flex;flex-direction:column;gap:3px}
+.hall-spec-val{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:#fff;-webkit-text-fill-color:#fff}
+.hall-spec-lbl{font-size:8px;letter-spacing:1.5px;color:rgba(255,255,255,0.3);-webkit-text-fill-color:rgba(255,255,255,0.3);text-transform:uppercase}
+.hall-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.5);-webkit-text-fill-color:rgba(255,255,255,0.5);margin-bottom:20px}
+.hall-features{display:flex;flex-direction:column;gap:8px}
+.hall-feat{font-size:10px;letter-spacing:1px;color:rgba(255,255,255,0.45);-webkit-text-fill-color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:8px}
+.hall-feat::before{content:'';width:4px;height:1px;background:var(--gold-dim);flex-shrink:0}
+
+/* ── PACKAGES ── */
+.packages-section{padding:70px 48px;background:#000}
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:1200px;margin:56px auto 0}
+.pkg-card{padding:40px 36px;border:1px solid rgba(200,169,110,0.1);background:rgba(200,169,110,0.02);position:relative;transition:border-color .3s}
+.pkg-card.highlight{border-color:rgba(200,169,110,0.35);background:rgba(200,169,110,0.06)}
+.pkg-card.highlight::before{content:'Популярен';position:absolute;top:-1px;left:50%;transform:translateX(-50%);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#000;-webkit-text-fill-color:#000;background:var(--gold-gradient);padding:5px 16px}
+.pkg-name{font-family:'Cormorant Garamond',serif;font-size:10px;font-weight:300;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.4);-webkit-text-fill-color:rgba(255,255,255,0.4);margin-bottom:8px;margin-top:16px}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
+.pkg-unit{font-size:10px;letter-spacing:1px;color:rgba(255,255,255,0.3);-webkit-text-fill-color:rgba(255,255,255,0.3);margin-bottom:28px}
+.pkg-divider{width:100%;height:1px;background:linear-gradient(90deg,rgba(200,169,110,0.2),transparent);margin-bottom:24px}
+.pkg-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.pkg-item{font-size:12px;line-height:1.5;color:rgba(255,255,255,0.55);-webkit-text-fill-color:rgba(255,255,255,0.55);display:flex;gap:10px;align-items:flex-start}
+.pkg-item::before{content:'✓';color:var(--gold);-webkit-text-fill-color:var(--gold);font-size:10px;flex-shrink:0;margin-top:2px}
+.btn-pkg{width:100%;padding:14px;background:none;border:1px solid rgba(200,169,110,0.3);font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);-webkit-text-fill-color:var(--gold);cursor:pointer;transition:background .3s,border-color .3s}
+.btn-pkg:hover{background:var(--gold-faint);border-color:var(--gold)}
+.pkg-card.highlight .btn-pkg{background:var(--gold-gradient);border:none;color:#000;-webkit-text-fill-color:#000}
+.pkg-card.highlight .btn-pkg:hover{opacity:0.85}
+
+/* ── BOOKING MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:500;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(8px)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:#0a0a0a;border:1px solid rgba(200,169,110,0.2);max-width:680px;width:100%;max-height:90vh;overflow-y:auto;padding:48px;position:relative;transform:translateY(20px);transition:transform .3s}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:20px;right:20px;background:none;border:none;color:rgba(255,255,255,0.4);-webkit-text-fill-color:rgba(255,255,255,0.4);font-size:22px;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;transition:color .2s}
+.modal-close:hover{color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.modal-label{font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.3);-webkit-text-fill-color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:8px}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;font-style:italic;letter-spacing:2px;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;line-height:1.1}
+.modal-subtitle{font-size:12px;color:rgba(255,255,255,0.35);-webkit-text-fill-color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:32px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px}
+.form-field{display:flex;flex-direction:column;padding:18px 20px;background:rgba(200,169,110,0.04);border:1px solid rgba(200,169,110,0.1)}
+.form-field.full{grid-column:1/-1}
+.form-label{font-size:7px;letter-spacing:2px;color:var(--gold-dim);-webkit-text-fill-color:var(--gold-dim);text-transform:uppercase;margin-bottom:8px}
+.form-input{background:none;border:none;outline:none;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;color:#fff;-webkit-text-fill-color:#fff;letter-spacing:1px;width:100%;resize:none}
+.form-input::placeholder{color:rgba(255,255,255,0.18);-webkit-text-fill-color:rgba(255,255,255,0.18)}
+.form-input::-webkit-input-placeholder{color:rgba(255,255,255,0.18);-webkit-text-fill-color:rgba(255,255,255,0.18)}
+select.form-input{background:#0a0a0a;cursor:pointer}
+select.form-input option{background:#0a0a0a;color:#fff}
+.form-submit{width:100%;padding:18px;background:var(--gold-gradient);border:none;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:300;letter-spacing:2px;text-transform:uppercase;color:#000;-webkit-text-fill-color:#000;cursor:pointer;transition:opacity .3s;margin-top:3px}
+.form-submit:hover{opacity:0.85}
+.form-submit:disabled{opacity:0.5;cursor:wait}
+.form-status{min-height:22px;margin-top:12px;font-size:11px;letter-spacing:0.5px;line-height:1.6;text-align:center;color:rgba(255,255,255,0.38);-webkit-text-fill-color:rgba(255,255,255,0.38)}
+.form-status.is-info{color:rgba(255,255,255,0.62);-webkit-text-fill-color:rgba(255,255,255,0.62)}
+.form-status.is-success{color:#9ee2b6;-webkit-text-fill-color:#9ee2b6}
+.form-status.is-error{color:#f0b3a8;-webkit-text-fill-color:#f0b3a8}
+.form-note{font-size:10px;color:rgba(255,255,255,0.25);-webkit-text-fill-color:rgba(255,255,255,0.25);text-align:center;margin-top:14px;letter-spacing:0.5px}
+.form-note a{color:var(--gold-dim);-webkit-text-fill-color:var(--gold-dim);text-decoration:none}
+.form-note a:hover{color:var(--gold);-webkit-text-fill-color:var(--gold)}
+
+.floating-cta{position:fixed;right:24px;bottom:24px;z-index:180;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:15px 18px 14px;border:none;background:var(--gold-gradient);color:#000;-webkit-text-fill-color:#000;box-shadow:0 22px 40px rgba(0,0,0,0.3);cursor:pointer;transition:transform .25s ease,opacity .25s ease}
+.floating-cta:hover{transform:translateY(-2px);opacity:0.92}
+.floating-cta.is-hidden{opacity:0;pointer-events:none;transform:translateY(16px)}
+.floating-cta-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:400;letter-spacing:1.8px;text-transform:uppercase}
+.floating-cta-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;line-height:0.95}
+
+/* ── QUICK CONTACT ── */
+.contact-strip{background:#050505;border-top:1px solid rgba(200,169,110,0.08);border-bottom:1px solid rgba(200,169,110,0.08);padding:40px 48px}
+.contact-strip-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.contact-info{display:flex;flex-direction:column;gap:6px}
+.contact-label{font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.3);-webkit-text-fill-color:rgba(255,255,255,0.3);text-transform:uppercase}
+.contact-val{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;letter-spacing:2px;color:var(--gold);-webkit-text-fill-color:var(--gold);text-decoration:none}
+.contact-val:hover{opacity:0.8}
+.contact-btns{display:flex;gap:3px}
+.btn-contact{display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 28px;text-decoration:none;cursor:pointer;font-weight:300;transition:opacity .3s,background .3s,border-color .3s;border:none}
+.btn-contact-gold{background:var(--gold-gradient);color:#000;-webkit-text-fill-color:#000}
+.btn-contact-gold:hover{opacity:0.85}
+.btn-contact-outline{background:none;border:1px solid rgba(200,169,110,0.35);color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.btn-contact-outline:hover{background:var(--gold-faint);border-color:var(--gold)}
+
+/* ── LOCATION ── */
+.location-section{background:linear-gradient(180deg,#050505,#000);padding:70px 48px 0}
+.location-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(300px,380px) minmax(0,1fr);gap:48px;align-items:start}
+.location-copy{display:flex;flex-direction:column;align-items:flex-start}
+.loc-address{font-size:15px;color:rgba(255,255,255,0.66);-webkit-text-fill-color:rgba(255,255,255,0.66);line-height:1.8;max-width:360px}
+.loc-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn-loc{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;transition:opacity .3s,background .3s,border-color .3s}
+.btn-loc-gold{background:var(--gold-gradient);color:#000;-webkit-text-fill-color:#000}
+.btn-loc-gold:hover{opacity:0.86}
+.btn-loc-outline{border:1px solid rgba(200,169,110,0.35);color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.btn-loc-outline:hover{background:var(--gold-faint);border-color:var(--gold)}
+.full-map-section{position:relative}
+#eventMapFrame{display:block;width:100%;height:420px;border:0;border-top:1px solid rgba(200,169,110,0.2);border-bottom:1px solid rgba(200,169,110,0.2);filter:grayscale(1) invert(.92) contrast(.88) brightness(.8)}
+
+/* ── FOOTER ── */
+footer{background:#000;border-top:1px solid rgba(200,169,110,0.1);padding:40px 48px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;letter-spacing:10px;background:linear-gradient(135deg,#c8a96e,#f0d898);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.f-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.f-links a{font-size:9px;letter-spacing:3px;color:var(--gold-dim);-webkit-text-fill-color:var(--gold-dim);text-decoration:none;text-transform:uppercase;transition:color .25s}
+.f-links a:hover{color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.f-copy{font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.2);-webkit-text-fill-color:rgba(255,255,255,0.2);text-align:right}
+
+/* ── UTILS ── */
+@keyframes fadeup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  header{padding:20px 24px}
+  nav{display:none}
+  .hamburger{display:flex}
+  .h-social{display:none}
+  .hero-btns{flex-direction:column;align-items:center;gap:10px}
+  .btn-hero{width:260px}
+  .scroll-ind{padding-top:18px;padding-bottom:28px}
+  .tab-btn .tab-icon{width:36px;height:36px;margin-bottom:7px}
+  .tab-btn .tab-icon svg{width:17px;height:17px}
+  .tab-btn{font-size:8.5px;letter-spacing:1.2px;padding:16px 8px}
+  section,.halls-section,.packages-section,.contact-strip,.location-section{padding:44px 24px}
+  .conference-filters{justify-content:flex-start;gap:8px;margin-bottom:20px}
+  .conference-filter-btn{font-size:8.5px;padding:9px 12px}
+  .visual-gallery{margin-top:28px}
+  .visual-gallery-head{margin-bottom:14px}
+  .visual-gallery-note{font-size:11px}
+  .conference-gallery-ring{max-width:100%}
+  .conference-ring-stage{height:420px}
+  .conference-ring-slide{width:min(88vw,420px);height:340px}
+  .conference-ring-slide.is-active{transform:translate(-50%,-50%) scale(1)}
+  .conference-ring-slide.is-prev{transform:translate(calc(-50% - 34vw),-50%) scale(0.68);opacity:0.46}
+  .conference-ring-slide.is-next{transform:translate(calc(-50% + 34vw),-50%) scale(0.68);opacity:0.46}
+  .conference-ring-slide.is-hidden-left{transform:translate(calc(-50% - 52vw),-50%) scale(0.52)}
+  .conference-ring-slide.is-hidden-right{transform:translate(calc(-50% + 52vw),-50%) scale(0.52)}
+  .conference-ring-slide .gallery-copy{padding:20px 18px 18px}
+  .conference-ring-controls{margin-top:12px}
+  .conference-ring-btn{width:42px;height:42px}
+  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .gallery-tile,.gallery-tile.featured,.gallery-tile.standard,.gallery-tile.square,.gallery-tile.tall{grid-column:span 1;grid-row:auto;min-height:182px}
+  .gallery-tile.featured{min-height:244px}
+  .gallery-copy{padding:18px 16px 16px}
+  .gallery-copy strong{font-size:22px}
+  .gallery-tile:not(.featured) .gallery-copy strong{font-size:20px}
+  .gallery-lightbox{padding:18px}
+  .gallery-lightbox-copy{padding:16px}
+  .gallery-lightbox-title{font-size:24px}
+  .events-grid{grid-template-columns:1fr;gap:0}
+  .event-card{height:460px!important;grid-column:1!important}
+  .event-desc{-webkit-line-clamp:5}
+  .conference-grid{gap:16px}
+  .conference-card{min-height:0}
+  .conference-card-featured{grid-column:auto;grid-template-columns:1fr}
+  .conference-media{height:240px}
+  .conference-card-featured .conference-content{padding:22px 22px 24px}
+  .conference-content{padding:22px 22px 24px}
+  .conference-meta{gap:8px;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .conference-date-card,.conference-schedule,.conference-price-card{min-height:92px;padding:12px 8px}
+  .conference-date-day{font-size:38px}
+  .conference-date-rest,.conference-schedule-label,.conference-price-caption{font-size:8px;letter-spacing:1.15px}
+  .conference-time-display,.conference-price-inline{transform:translateY(4px)}
+  .conference-time-hour{font-size:30px}
+  .conference-time-minutes{font-size:17px;padding-top:6px}
+  .conference-price-inline .conference-price-amount{font-size:33px}
+  .conference-price-inline .conference-price-currency{font-size:18px;padding-top:9px}
+  .conference-card.is-expanded .conference-details{max-height:1100px}
+  .conference-actions{align-items:flex-start}
+  .conference-action-group{width:100%}
+  .conference-primary-btn,.conference-secondary-btn{flex:1}
+  .halls-grid{grid-template-columns:1fr}
+  .packages-grid{grid-template-columns:1fr}
+  .location-inner{grid-template-columns:1fr;gap:28px}
+  .loc-actions{width:100%;flex-direction:column}
+  .btn-loc{width:100%}
+  #eventMapFrame{width:100%;height:320px}
+  .contact-strip-inner{flex-direction:column;align-items:flex-start;gap:20px}
+  .contact-btns{width:100%;flex-direction:column}
+  .btn-contact{width:100%;justify-content:center}
+  .floating-cta{right:16px;left:16px;bottom:16px;align-items:center;text-align:center}
+  .floating-cta-title{font-size:22px}
+  footer{display:flex;flex-direction:column;text-align:center;align-items:center;gap:16px}
+  .f-copy{text-align:center}
+  .modal{padding:32px 24px}
+  .form-grid{grid-template-columns:1fr}
+}
+/* ══ SEATING MODAL ══ */
+.sm-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:510;display:flex;align-items:flex-start;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(10px);overflow-y:auto}
+.sm-overlay.open{opacity:1;pointer-events:all}
+.sm-box{background:#111;border:1px solid rgba(200,169,110,0.25);width:100%;max-width:800px;margin:auto;position:relative;transform:translateY(16px);transition:transform .3s}
+.sm-overlay.open .sm-box{transform:translateY(0)}
+.sm-close{position:absolute;top:14px;right:14px;background:none;border:none;color:rgba(255,255,255,0.5);font-size:22px;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;z-index:2}
+.sm-close:hover{color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.sm-head{padding:24px 28px 18px;border-bottom:1px solid rgba(200,169,110,0.1)}
+.sm-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:6px}
+.sm-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;font-style:italic;letter-spacing:2px;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.sm-sub{font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px}
+.sm-body{padding:20px 28px 28px}
+.sm-stage{width:55%;max-width:280px;margin:0 auto 8px;height:32px;background:rgba(200,169,110,0.12);border:1px solid rgba(200,169,110,0.35);display:flex;align-items:center;justify-content:center;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(200,169,110,0.7)}
+.sm-stage-hint{text-align:center;font-size:8px;color:rgba(255,255,255,0.2);margin-bottom:16px}
+.sm-grid{display:flex;flex-direction:column;align-items:center;gap:5px;margin-bottom:16px}
+.sm-row{display:flex;align-items:center;gap:5px}
+.sm-row-lbl{width:18px;font-size:9px;color:rgba(255,255,255,0.3);text-align:right;flex-shrink:0}
+.sm-seat{width:34px;height:34px;border-radius:5px 5px 3px 3px;border:1px solid;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;user-select:none;flex-shrink:0;font-family:'Montserrat',sans-serif}
+.sm-seat .sn{font-size:7px;color:rgba(255,255,255,0.3);line-height:1;margin-top:1px}
+.sm-seat.free{background:#222;border-color:rgba(255,255,255,0.35);color:rgba(255,255,255,0.6)}
+.sm-seat.free:hover{background:rgba(200,169,110,0.25);border-color:#c8a96e;color:#c8a96e;transform:translateY(-2px)}
+.sm-seat.taken{background:#2a0f0f;border-color:rgba(180,60,60,0.4);color:rgba(180,60,60,0.5);cursor:not-allowed}
+.sm-seat.selected{background:rgba(200,169,110,0.3);border-color:#c8a96e;color:#c8a96e;box-shadow:0 0 8px rgba(200,169,110,0.3);transform:translateY(-1px)}
+.sm-aisle{width:16px;flex-shrink:0}
+.sm-legend{display:flex;gap:16px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
+.sm-leg{display:flex;align-items:center;gap:6px;font-size:9px;color:rgba(255,255,255,0.4)}
+.sm-leg-dot{width:12px;height:12px;border-radius:3px;border:1px solid;flex-shrink:0}
+.sm-ld-free{background:#222;border-color:rgba(255,255,255,0.35)}
+.sm-ld-sel{background:rgba(200,169,110,0.3);border-color:#c8a96e}
+.sm-ld-taken{background:#2a0f0f;border-color:rgba(180,60,60,0.4)}
+.sm-summary{background:rgba(200,169,110,0.07);border:1px solid rgba(200,169,110,0.15);padding:14px 18px;margin-bottom:16px;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sm-sum-empty{font-size:11px;color:rgba(255,255,255,0.25);width:100%;text-align:center}
+.sm-sum-lbl{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:3px}
+.sm-sum-val{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:#fff}
+.sm-sum-seats{font-size:10px;color:var(--gold-dim);margin-top:2px}
+.sm-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px}
+.sm-form-grid .form-field.full{grid-column:1/-1}
+.sm-submit{width:100%;padding:16px;background:var(--gold-gradient);border:none;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#000;cursor:pointer;transition:opacity .25s;margin-top:2px}
+.sm-submit:hover{opacity:.85}
+.sm-submit:disabled{opacity:.35;cursor:not-allowed}
+.sm-status{min-height:18px;margin-top:8px;font-size:11px;text-align:center;color:rgba(255,255,255,0.35)}
+.sm-status.err{color:#f0b3a8}
+.sm-status.ok{color:#9ee2b6}
+.sm-status.inf{color:rgba(255,255,255,0.6)}
+@media(max-width:600px){
+  .sm-body,.sm-head{padding:16px}
+  .sm-seat{width:28px;height:28px}
+  .sm-row{gap:3px}
+  .sm-grid{gap:3px}
+  .sm-form-grid{grid-template-columns:1fr}
+  .sm-seat .sn{display:none}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════
+     HEADER
+═══════════════════════════════ -->
+<header>
+  <div class="h-logo">
+    <a href="index.html">LOTUS</a>
+    <span>HOTEL &amp; EVENT CENTER</span>
+  </div>
+  <nav>
+    <a href="/hotel">Хотел</a>
+    <a href="/restaurant">Ресторант</a>
+    <a href="/event-center" class="active">Event Center</a>
+    <a href="/za-nas">За нас</a>
+    <a href="#" class="h-book" onclick="openBooking(null,'general');return false">Резервация</a>
+  </nav>
+  <div class="h-social">
+    <a href="" id="hInstagram" target="_blank" rel="noopener" aria-label="Instagram" class="h-social-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dim)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="var(--gold-dim)" stroke="none"/></svg>
+    </a>
+    <a href="" id="hFacebook" target="_blank" rel="noopener" aria-label="Facebook" class="h-social-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dim)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Меню" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mob-overlay" id="mobOverlay" onclick="closeMenu()"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="/hotel">Хотел</a>
+  <a href="/restaurant">Ресторант</a>
+  <div class="mob-dropdown-label active open" onclick="toggleMobSub(this)">Event Center</div>
+  <div class="mob-sub open">
+    <a href="#events" onclick="closeMenu();return navigateToCategory('events')">Събития</a>
+    <a href="#conferences" onclick="closeMenu();return navigateToCategory('conferences')">Конференции</a>
+    <a href="#halls" onclick="closeMenu();return navigateToCategory('halls')">Под наем</a>
+  </div>
+  <a href="/za-nas">За нас</a>
+  <div class="mob-contacts">
+    <a id="mobPhone" href="#" class="mob-phone"></a>
+    <div class="mob-social">
+      <a id="mobFacebook" href="#" target="_blank" rel="noopener" aria-label="Facebook" class="mob-social-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dim)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a id="mobInstagram" href="#" target="_blank" rel="noopener" aria-label="Instagram" class="mob-social-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dim)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="var(--gold-dim)" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════
+     HERO
+═══════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <img src="https://ik.imagekit.io/cxsglq1fm/Logo_Lotus_Event_Center_flowergold.png" alt="Lotus Event Center Logo" class="hero-logo" loading="eager" decoding="async">
+    <p class="hero-eyebrow">Lotus Hotel &amp; Event Center</p>
+    <h1 class="hero-title">EVENT CENTER</h1>
+    <p class="hero-sub">Варна · Конференции &amp; Събития</p>
+    <p class="hero-desc">Пространство, което превръща всяко събитие в преживяване — от представителни форуми до изискани шоу програми</p>
+    <div class="hero-btns">
+      <a href="#conferences" class="btn-hero btn-hero-gold" onclick="return navigateToCategory('conferences')">Конференции</a>
+      <a href="#events" class="btn-hero btn-hero-gold" onclick="return navigateToCategory('events')">Събития</a>
+      <a href="#halls" class="btn-hero btn-hero-outline" onclick="return navigateToCategory('halls')">Зали под наем</a>
+    </div>
+    <div class="scroll-ind">
+      <span>Разгледай</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     TAB SWITCHER
+═══════════════════════════════ -->
+<div class="tab-section" id="tabSection">
+  <div class="tab-inner">
+    <button class="tab-btn active" type="button" data-tab="conferences" onclick="switchTab('conferences',this)">
+      <span class="tab-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M12 4a3 3 0 0 1 3 3v4a3 3 0 1 1-6 0V7a3 3 0 0 1 3-3Z"></path>
+          <path d="M7.5 10.5a4.5 4.5 0 0 0 9 0"></path>
+          <path d="M12 15v5"></path>
+          <path d="M9 20h6"></path>
+        </svg>
+      </span>
+      Конференции &amp; Форуми
+    </button>
+    <button class="tab-btn" type="button" data-tab="events" onclick="switchTab('events',this)">
+      <span class="tab-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"></path>
+          <path d="M18.5 4.5l.7 2 .8.3-.8.3-.7 2-.7-2-.8-.3.8-.3.7-2Z"></path>
+          <path d="M18 14l1.1 3.1L22 18l-2.9.9L18 22l-1.1-3.1L14 18l2.9-.9L18 14Z"></path>
+        </svg>
+      </span>
+      Специални събития
+    </button>
+    <button class="tab-btn" type="button" data-tab="halls" onclick="switchTab('halls',this)">
+      <span class="tab-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M4 10h16"></path>
+          <path d="M6 10v7"></path>
+          <path d="M10 10v7"></path>
+          <path d="M14 10v7"></path>
+          <path d="M18 10v7"></path>
+          <path d="M3 20h18"></path>
+          <path d="M12 4l8 4H4l8-4Z"></path>
+        </svg>
+      </span>
+      Зали под наем
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     PANEL: CONFERENCES
+═══════════════════════════════ -->
+<div id="panel-conferences" class="panel active">
+  <section id="conferences" style="background:#000;padding-top:56px">
+    <div class="events-header reveal">
+        <p class="section-label">Бизнес & Нетуъркинг</p>
+      <h2 class="section-title">Конференции & Форуми</h2>
+      <div class="gold-line"></div>
+      <p class="section-text">Представителна среда за конгреси, бизнес форуми, академични симпозиуми и корпоративни конференции — с пълна техническа поддръжка.</p>
+    </div>
+        <div class="conference-filters reveal" id="conferenceFilterBar"></div>
+        <div class="events-grid conference-grid reveal" id="conferencesGrid"></div>
+        <div class="visual-gallery reveal" id="conferenceGalleryWrap">
+          <div class="visual-gallery-head">
+            <div>
+              <p class="visual-gallery-kicker">Атмосфера</p>
+              <h3 class="visual-gallery-title">Как изглежда един форум в Lotus</h3>
+            </div>
+            <p class="visual-gallery-note">Широка сцена, представителен прием, networking зона и кадри, които дават усещане за мащаба на събитието.</p>
+          </div>
+          <div class="conference-gallery-ring">
+            <div class="conference-ring-stage" id="conferenceGallery"></div>
+            <div class="conference-ring-controls">
+              <button type="button" class="conference-ring-btn" aria-label="Предишен кадър" onclick="advanceConferenceGallery(-1)">‹</button>
+              <div class="conference-ring-dots" id="conferenceGalleryDots"></div>
+              <button type="button" class="conference-ring-btn" aria-label="Следващ кадър" onclick="advanceConferenceGallery(1)">›</button>
+            </div>
+          </div>
+        </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════
+     PANEL: SPECIAL EVENTS
+═══════════════════════════════ -->
+<div id="panel-events" class="panel">
+  <section id="events" style="background:#000;padding-top:56px">
+    <div class="events-header reveal">
+      <p class="section-label">Шоу & Мода & Гала</p>
+      <h2 class="section-title">Специални събития</h2>
+      <div class="gold-line"></div>
+      <p class="section-text">Fashion дефилета, арт вернисажи, гала вечери, концерти и корпоративни тържества — всяко събитие по ваша концепция.</p>
+    </div>
+    <div class="events-grid reveal" id="eventsGrid"></div>
+    <div class="visual-gallery reveal" id="eventsGalleryWrap">
+      <div class="visual-gallery-head">
+        <div>
+          <p class="visual-gallery-kicker">Сценография</p>
+          <h3 class="visual-gallery-title">Как изглеждат специалните събития</h3>
+        </div>
+        <p class="visual-gallery-note">Мода, гала, концертни формати и по-интимни вечери с различно осветление, настроение и публика.</p>
+      </div>
+      <div class="gallery-grid" id="eventsGallery"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════
+     PANEL: HALLS
+═══════════════════════════════ -->
+<div id="panel-halls" class="panel">
+  <!-- HALLS -->
+  <section class="halls-section" id="halls">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 0">
+      <p class="section-label">Зали</p>
+      <h2 class="section-title">Нашите пространства</h2>
+      <div class="gold-line" style="margin:24px auto"></div>
+      <p class="section-text" style="margin:0 auto">Три зали с различен капацитет и профил — от борд срещи до мащабни конференции и шоу програми.</p>
+    </div>
+    <div class="halls-grid reveal" id="hallsGrid"></div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="packages-section">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
+      <p class="section-label">Пакети</p>
+      <h2 class="section-title">Наем & Пакети</h2>
+      <div class="gold-line" style="margin:24px auto"></div>
+      <p class="section-text" style="margin:0 auto">Изберете пакет или поискайте индивидуална оферта — ние изграждаме формата около вашето събитие.</p>
+    </div>
+    <div class="packages-grid reveal" id="packagesGrid"></div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════
+     QUICK CONTACT STRIP
+═══════════════════════════════ -->
+<div class="contact-strip reveal">
+  <div class="contact-strip-inner">
+    <div class="contact-info">
+      <span class="contact-label">Организирайте вашето събитие</span>
+      <a id="contactPhone" href="#" class="contact-val"></a>
+      <a id="contactEmail" href="#" class="contact-val" style="font-size:16px;letter-spacing:1px;opacity:0.7"></a>
+    </div>
+    <div class="contact-btns">
+      <button class="btn-contact btn-contact-gold" onclick="openBooking(null,'general')">
+        Резервирайте зала
+      </button>
+      <a id="viberBtn" href="#" class="btn-contact btn-contact-outline">
+        Viber запитване
+      </a>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="floating-cta" onclick="openBooking(null,'general')">
+  <span class="floating-cta-label">Бърза заявка</span>
+  <span class="floating-cta-title">Оставете запитване</span>
+</button>
+
+<!-- ═══════════════════════════════
+     FOOTER
+═══════════════════════════════ -->
+<section class="location-section">
+  <div class="location-inner reveal">
+    <div class="location-copy">
+      <p class="section-label">Как да стигнете</p>
+      <h2 class="section-title">Адрес & Карта</h2>
+      <div class="gold-line"></div>
+      <p class="section-text">Лесен достъп за гости, лектори и организатори с удобна локация във Варна и бърза навигация до самия event center.</p>
+      <p class="loc-address" id="locationAddress"></p>
+      <div class="loc-actions">
+        <a id="directionsBtn" href="#" target="_blank" rel="noopener" class="btn-loc btn-loc-gold">Отвори в Google Maps</a>
+        <a id="contactDirectionsPhone" href="#" class="btn-loc btn-loc-outline">Обадете се</a>
+      </div>
+    </div>
+    <div class="full-map-section">
+      <iframe id="eventMapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта до Lotus Event Center"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">LOTUS</div>
+  <div class="f-links">
+    <a href="index.html">Начало</a>
+    <a href="/hotel">Хотел</a>
+    <a href="/restaurant">Ресторант</a>
+    <a href="/event-center">Event Center</a>
+    <a href="/za-nas">За нас</a>
+  </div>
+  <div class="f-copy">© 2026 Lotus Hotel &amp; Event Center · Варна</div>
+</footer>
+
+<div class="gallery-lightbox" id="galleryLightbox" onclick="handleGalleryLightbox(event)">
+  <div class="gallery-lightbox-inner">
+    <button class="gallery-lightbox-close" type="button" aria-label="Затвори" onclick="closeGalleryLightbox()">×</button>
+    <img class="gallery-lightbox-img" id="galleryLightboxImg" src="" alt="">
+    <div class="gallery-lightbox-copy">
+      <div class="gallery-lightbox-title" id="galleryLightboxTitle"></div>
+      <div class="gallery-lightbox-caption" id="galleryLightboxCaption"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEATING MODAL ══ -->
+<div class="sm-overlay" id="smOverlay" onclick="smOverlayClick(event)">
+  <div class="sm-box">
+    <button class="sm-close" onclick="smClose()">✕</button>
+    <div class="sm-head">
+      <div class="sm-lbl">Резервация на места</div>
+      <div class="sm-title" id="smTitle">—</div>
+      <div class="sm-sub" id="smSub">—</div>
+    </div>
+    <div class="sm-body">
+      <div class="sm-stage">Сцена / Подиум</div>
+      <div class="sm-stage-hint">↑ предна част на залата</div>
+      <div class="sm-grid" id="smGrid"></div>
+      <div class="sm-legend">
+        <div class="sm-leg"><div class="sm-leg-dot sm-ld-free"></div>Свободно</div>
+        <div class="sm-leg"><div class="sm-leg-dot sm-ld-sel"></div>Избрано</div>
+        <div class="sm-leg"><div class="sm-leg-dot sm-ld-taken"></div>Заето</div>
+      </div>
+      <div class="sm-summary">
+        <div class="sm-sum-empty" id="smEmpty">Изберете места от схемата по-горе</div>
+        <div id="smCountWrap" style="display:none">
+          <div class="sm-sum-lbl">Избрани</div>
+          <div class="sm-sum-val" id="smCountVal">0</div>
+          <div class="sm-sum-seats" id="smSeatsList"></div>
+        </div>
+      </div>
+      <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:10px">Вашите данни</div>
+      <div class="sm-form-grid">
+        <div class="form-field"><label class="form-label">Вашето ime</label><input class="form-input" type="text" id="smName" placeholder="Иван Иванов"></div>
+        <div class="form-field"><label class="form-label">Телефон</label><input class="form-input" type="tel" id="smPhone" placeholder="+359 87x xxx xxx"></div>
+        <div class="form-field full"><label class="form-label">Имейл</label><input class="form-input" type="email" id="smEmail" placeholder="email@example.com"></div>
+        <div class="form-field full"><label class="form-label">Съобщение (по желание)</label><textarea class="form-input" id="smMsg" rows="2" placeholder="Специални изисквания..."></textarea></div>
+      </div>
+      <button class="sm-submit" id="smBtn" onclick="smSubmit()">Резервирайте избраните места</button>
+      <div class="sm-status" id="smStatus" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     BOOKING MODAL
+═══════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleModalClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeBooking()" aria-label="Затвори">✕</button>
+    <p class="modal-label">Резервация</p>
+    <h2 class="modal-title" id="modalTitle">Резервирайте зала</h2>
+    <p class="modal-subtitle" id="modalSubtitle">Попълнете формата — ще се свържем с вас в рамките на 2 часа</p>
+
+    <div class="form-grid">
+      <div class="form-field">
+        <label class="form-label">Вашето име</label>
+        <input class="form-input" type="text" id="fName" placeholder="Иван Иванов" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Телефон</label>
+        <input class="form-input" type="tel" id="fPhone" placeholder="+359 87x xxx xxx" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Имейл</label>
+        <input class="form-input" type="email" id="fEmail" placeholder="email@example.com" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Брой гости</label>
+        <select class="form-input" id="fGuests">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+          <option value="300+">300+</option>
+        </select>
+      </div>
+      <div class="form-field full">
+        <label class="form-label">Допълнително съобщение (по желание)</label>
+        <textarea class="form-input" id="fMsg" rows="3" placeholder="Опишете накратко вашето събитие..."></textarea>
+      </div>
+    </div>
+
+    <button class="form-submit" id="submitBookingBtn" onclick="submitBooking()">Изпратете запитване</button>
+    <p class="form-status" id="bookingStatus" aria-live="polite"></p>
+    <p class="form-note">Или се свържете директно: <a id="modalPhone" href="#">+359 879 321 838</a> &nbsp;·&nbsp; <a id="modalEmail" href="#"><span class="__cf_email__" data-cfemail="036675666d7770436f6c77767060666d7766712d6164">[email&#160;protected]</span></a></p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── Apply config ── */
+document.addEventListener('DOMContentLoaded', function(){
+  // Social & contact links
+  document.getElementById('hInstagram').href = SITE_CONFIG.instagram;
+  document.getElementById('hFacebook').href = SITE_CONFIG.facebook;
+  document.getElementById('mobPhone').href = 'tel:' + SITE_CONFIG.phone;
+  document.getElementById('mobPhone').textContent = SITE_CONFIG.phoneDisplay;
+  document.getElementById('mobFacebook').href = SITE_CONFIG.facebook;
+  document.getElementById('mobInstagram').href = SITE_CONFIG.instagram;
+  document.getElementById('contactPhone').href = 'tel:' + SITE_CONFIG.phone;
+  document.getElementById('contactPhone').textContent = SITE_CONFIG.phoneDisplay;
+  document.getElementById('contactEmail').href = 'mailto:' + SITE_CONFIG.email;
+  document.getElementById('contactEmail').textContent = SITE_CONFIG.email;
+  document.getElementById('viberBtn').href = 'viber://chat?number=' + encodeURIComponent(SITE_CONFIG.phone);
+  document.getElementById('modalPhone').href = 'tel:' + SITE_CONFIG.phone;
+  document.getElementById('modalPhone').textContent = SITE_CONFIG.phone;
+  document.getElementById('modalEmail').href = 'mailto:' + SITE_CONFIG.email;
+  document.getElementById('modalEmail').textContent = SITE_CONFIG.email;
+  document.getElementById('locationAddress').textContent = SITE_CONFIG.address;
+  document.getElementById('contactDirectionsPhone').href = 'tel:' + SITE_CONFIG.phone;
+
+  var mapsQuery = encodeURIComponent(SITE_CONFIG.address);
+  document.getElementById('directionsBtn').href = 'https://www.google.com/maps/search/?api=1&query=' + mapsQuery;
+  document.getElementById('eventMapFrame').src = 'https://www.google.com/maps?q=' + mapsQuery + '&output=embed';
+
+  validateEventCenterData();
+  renderConferenceFilters();
+  renderConferences();
+  renderConferenceGallery();
+  initConferenceCards();
+  renderEvents();
+  renderEventsGallery();
+  renderHalls();
+  renderPackages();
+  initReveal();
+  applyCategoryFromHash();
+  var activeTabBtn = document.querySelector('.tab-btn.active');
+  updateFloatingCtaVisibility(activeTabBtn ? activeTabBtn.dataset.tab : 'conferences');
+  window.addEventListener('hashchange', applyCategoryFromHash);
+});
+
+/* ── Badge class helper ── */
+function badgeClass(type){
+  const map = {upcoming:'badge-upcoming',register:'badge-register',fashion:'badge-fashion',gala:'badge-gala',corporate:'badge-corporate',soldout:'badge-soldout',free:'badge-free',completed:'badge-completed',show:'badge-upcoming',private:'badge-corporate'};
+  return 'event-badge ' + (map[type] || 'badge-upcoming');
+}
+
+var BG_MONTHS={'Януари':0,'Февруари':1,'Март':2,'Април':3,'Май':4,'Юни':5,'Юли':6,'Август':7,'Септември':8,'Октомври':9,'Ноември':10,'Декември':11};
+function isEventPast(d){
+  if(!d||d==='При заявка'||d==='По договаряне') return false;
+  var p=String(d).trim().split(/[\s\u2013-]+/);
+  var day,mon,yr;
+  if(p.length>=3){day=parseInt(p[p.length-3],10);mon=BG_MONTHS[p[p.length-2]];yr=parseInt(p[p.length-1],10);}
+  else if(p.length===2){mon=BG_MONTHS[p[0]];yr=parseInt(p[1],10);day=1;}
+  else return false;
+  if(isNaN(day)||mon===undefined||isNaN(yr)) return false;
+  return new Date(yr,mon,day+1)<new Date();
+}
+function getExcerpt(text, maxLength){
+  if(!text || text.length <= maxLength) return text || '';
+  var shortText = text.slice(0, maxLength);
+  var lastSpace = shortText.lastIndexOf(' ');
+  if(lastSpace > maxLength * 0.65){
+    shortText = shortText.slice(0, lastSpace);
+  }
+  return shortText + '...';
+}
+
+function conferencePriority(conf){
+  return conf.badgeType === 'register' ? 0 : 1;
+}
+
+function conferenceActionLabel(conf){
+  return conf.badgeType === 'register' ? 'Регистрация' : 'Предварителна регистрация';
+}
+
+function conferencePriceMarkup(conf){
+  var amount = (String(conf.price || '').match(/\d+/) || ['10'])[0];
+  return '<div class="conference-price-card">' +
+    '<span class="conference-price-inline"><span class="conference-price-amount">' + amount + '</span><span class="conference-price-currency">€</span></span>' +
+    '<span class="conference-price-caption">Вход</span>' +
+  '</div>';
+}
+
+function splitConferenceDate(date){
+  var parts = String(date || '').trim().split(/\s+/);
+  return {
+    day: parts.shift() || '',
+    rest: parts[0] || ''
+  };
+}
+
+function formatConferenceTimePart(timePart){
+  var cleaned = String(timePart || '').trim();
+  var bits = cleaned.split(':');
+  return '<span class="conference-time-hour">' + (bits[0] || cleaned) + '</span>' +
+    (bits[1] ? '<span class="conference-time-minutes">:' + bits[1] + '</span>' : '');
+}
+
+function conferenceTimeMarkup(time){
+  var normalized = String(time || '').replace(/\s+/g, ' ').trim();
+  var startOnly = normalized.split(/\s*[–-]\s*/)[0] || normalized;
+  return '<span class="conference-time-display">' + formatConferenceTimePart(startOnly) + '</span>';
+}
+
+function conferenceDateMarkup(conf){
+  var dateParts = splitConferenceDate(conf.date);
+  return '<div class="conference-date-card">' +
+    '<span class="conference-date-day">' + dateParts.day + '</span>' +
+    '<span class="conference-date-rest">' + dateParts.rest + '</span>' +
+  '</div>' +
+  '<div class="conference-schedule">' +
+    conferenceTimeMarkup(conf.time) +
+    '<span class="conference-schedule-label">Начало</span>' +
+  '</div>' +
+  conferencePriceMarkup(conf);
+}
+
+var activeConferenceTag = 'all';
+
+function conferenceTagOrder(tag){
+  var order = ['Бизнес', 'Нетуъркинг', 'AI', 'Строителство', 'Архитектура', 'Индустрия', 'Инвестиции', 'Международни отношения', 'HoReCa', 'Медицина', 'Иновации'];
+  var index = order.indexOf(tag);
+  return index === -1 ? 999 : index;
+}
+
+function getConferenceTags(){
+  var seen = {};
+  return CONFERENCES.reduce(function(list, conf){
+    (conf.tags || []).forEach(function(tag){
+      if(!seen[tag]){
+        seen[tag] = true;
+        list.push(tag);
+      }
+    });
+    return list;
+  }, []).sort(function(a, b){
+    var orderDiff = conferenceTagOrder(a) - conferenceTagOrder(b);
+    return orderDiff !== 0 ? orderDiff : a.localeCompare(b, 'bg');
+  });
+}
+
+function buildGalleryItems(items, labels){
+  return items.map(function(item, index){
+    var variant = index === 0 ? 'featured' : (index % 3 === 0 ? 'tall' : (index % 2 === 0 ? 'square' : 'standard'));
+    return {
+      image: item.image,
+      title: item.title,
+      caption: (labels && labels[item.id]) || item.subtitle || '',
+      variant: variant
+    };
+  });
+}
+
+function renderVisualGallery(targetId, items){
+  var grid = document.getElementById(targetId);
+  if(!grid) return;
+  grid.innerHTML = items.map(function(item){
+    var safeTitle = String(item.title || '').replace(/"/g, '&quot;');
+    var safeCaption = String(item.caption || '').replace(/"/g, '&quot;');
+    return '<button type="button" class="gallery-tile ' + item.variant + '" onclick="openGalleryLightbox(this)" data-gallery-image="' + item.image + '" data-gallery-title="' + safeTitle + '" data-gallery-caption="' + safeCaption + '">' +
+      '<img src="' + item.image + '" alt="' + safeTitle + '" loading="lazy" decoding="async">' +
+      '<div class="gallery-copy">' +
+        '<strong>' + item.title + '</strong>' +
+        '<span>' + (item.caption || '') + '</span>' +
+      '</div>' +
+    '</button>';
+  }).join('');
+}
+
+var conferenceGalleryIndex = 0;
+
+function getConferenceRingClass(index, activeIndex, total){
+  if(index === activeIndex) return 'is-active';
+  if(index === (activeIndex - 1 + total) % total) return 'is-prev';
+  if(index === (activeIndex + 1) % total) return 'is-next';
+  if(index < activeIndex){
+    return 'is-hidden-left';
+  }
+  return 'is-hidden-right';
+}
+
+function renderConferenceGallery(){
+  var stage = document.getElementById('conferenceGallery');
+  var dots = document.getElementById('conferenceGalleryDots');
+  if(!stage || !dots || !CONFERENCE_GALLERY.length) return;
+
+  if(conferenceGalleryIndex >= CONFERENCE_GALLERY.length){
+    conferenceGalleryIndex = 0;
+  }
+
+  stage.innerHTML = CONFERENCE_GALLERY.map(function(item, index){
+    var safeTitle = String(item.title || '').replace(/"/g, '&quot;');
+    var safeCaption = String(item.caption || '').replace(/"/g, '&quot;');
+    var stateClass = getConferenceRingClass(index, conferenceGalleryIndex, CONFERENCE_GALLERY.length);
+    return '<button type="button" class="conference-ring-slide ' + stateClass + '" onclick="handleConferenceGallerySlide(' + index + ', this)" data-gallery-image="' + item.image + '" data-gallery-title="' + safeTitle + '" data-gallery-caption="' + safeCaption + '">' +
+      '<img src="' + item.image + '" alt="' + safeTitle + '" loading="lazy" decoding="async">' +
+      '<div class="gallery-copy">' +
+        '<strong>' + item.title + '</strong>' +
+        '<span>' + (item.caption || '') + '</span>' +
+      '</div>' +
+    '</button>';
+  }).join('');
+
+  dots.innerHTML = CONFERENCE_GALLERY.map(function(item, index){
+    return '<button type="button" class="conference-ring-dot' + (index === conferenceGalleryIndex ? ' active' : '') + '" aria-label="Кадър ' + (index + 1) + '" onclick="goToConferenceGallery(' + index + ')"></button>';
+  }).join('');
+}
+
+function renderEventsGallery(){
+  renderVisualGallery('eventsGallery', EVENTS_GALLERY);
+}
+
+function advanceConferenceGallery(delta){
+  if(!CONFERENCE_GALLERY.length) return;
+  conferenceGalleryIndex = (conferenceGalleryIndex + delta + CONFERENCE_GALLERY.length) % CONFERENCE_GALLERY.length;
+  renderConferenceGallery();
+}
+
+function goToConferenceGallery(index){
+  conferenceGalleryIndex = index;
+  renderConferenceGallery();
+}
+
+function handleConferenceGallerySlide(index, el){
+  if(index === conferenceGalleryIndex){
+    openGalleryLightbox(el);
+    return;
+  }
+  conferenceGalleryIndex = index;
+  renderConferenceGallery();
+}
+
+function openGalleryLightbox(trigger){
+  var overlay = document.getElementById('galleryLightbox');
+  if(!overlay || !trigger) return;
+  document.getElementById('galleryLightboxImg').src = trigger.getAttribute('data-gallery-image') || '';
+  document.getElementById('galleryLightboxImg').alt = trigger.getAttribute('data-gallery-title') || '';
+  document.getElementById('galleryLightboxTitle').textContent = trigger.getAttribute('data-gallery-title') || '';
+  document.getElementById('galleryLightboxCaption').textContent = trigger.getAttribute('data-gallery-caption') || '';
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGalleryLightbox(){
+  var overlay = document.getElementById('galleryLightbox');
+  if(!overlay) return;
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleGalleryLightbox(e){
+  if(e.target === document.getElementById('galleryLightbox')) closeGalleryLightbox();
+}
+
+function renderConferenceFilters(){
+  var bar = document.getElementById('conferenceFilterBar');
+  if(!bar) return;
+
+  var tags = ['all'].concat(getConferenceTags());
+  bar.innerHTML = tags.map(function(tag){
+    var isAll = tag === 'all';
+    var label = isAll ? 'Всички' : tag;
+    var active = activeConferenceTag === tag ? ' active' : '';
+    return '<button type="button" class="conference-filter-btn' + active + '" onclick="setConferenceFilter(\'' + tag.replace(/'/g, "\\'") + '\')">' + label + '</button>';
+  }).join('');
+}
+
+function getFilteredConferenceItems(){
+  return CONFERENCES.filter(function(conf){
+    return activeConferenceTag === 'all' || (conf.tags || []).indexOf(activeConferenceTag) !== -1;
+  }).sort(function(a, b){
+    return conferencePriority(a) - conferencePriority(b);
+  });
+}
+
+function setConferenceFilter(tag){
+  activeConferenceTag = tag;
+  renderConferenceFilters();
+  renderConferences();
+  initConferenceCards();
+}
+
+/* ── Render conferences ── */
+function renderConferences(){
+  var grid = document.getElementById('conferencesGrid');
+  var conferenceItems = getFilteredConferenceItems();
+  if(!conferenceItems.length){
+    grid.innerHTML = '<div class="conference-empty">Няма налични конференции за избрания филтър.</div>';
+    return;
+  }
+  grid.innerHTML = conferenceItems.map(function(c, i){
+    return '<article class="conference-card'+(i===0?' conference-card-featured is-peek':'')+'" data-conf-card="'+c.id+'" aria-expanded="false">'+
+      '<div class="conference-media">'+
+        '<img class="conference-img" src="'+c.image+'" alt="'+c.title+'" loading="lazy" decoding="async">'+
+        '<div class="conference-overlay"></div>'+
+        '<div class="'+badgeClass(c.badgeType)+' conference-badge">'+c.badge+'</div>'+
+      '</div>'+
+      '<div class="conference-content">'+
+        '<div class="conference-meta">'+
+          conferenceDateMarkup(c)+
+        '</div>'+
+        '<div class="conference-name">'+c.title+'<span>'+c.subtitle+'</span></div>'+
+        '<p class="conference-summary">'+getExcerpt(c.desc, 155)+'</p>'+
+        '<div class="conference-tags">'+c.tags.map(function(t){return '<span class="event-tag">'+t+'</span>'}).join('')+'</div>'+
+        '<div class="conference-actions">'+
+          '<div class="conference-action-group">'+
+            '<button type="button" class="conference-secondary-btn" data-conf-toggle onclick="return toggleConferenceCard(\''+c.id+'\', event)">Детайли</button>'+
+            '<button type="button" class="conference-primary-btn" onclick="openBooking(\''+c.id+'\',\'conf\')">'+conferenceActionLabel(c)+'</button>'+
+          '</div>'+
+        '</div>'+
+        '<div class="conference-details" id="conference-details-'+c.id+'">'+
+          '<div class="conference-detail-label">Програма и теми</div>'+
+          '<p class="conference-detail-text">'+(c.detailsHtml || c.desc)+'</p>'+
+        '</div>'+
+      '</div>'+
+    '</article>';
+  }).join('');
+}
+
+/* ── Render events ── */
+function renderEvents(){
+  var grid=document.getElementById('eventsGrid');
+  grid.innerHTML=EVENTS.map(function(ev){
+    var past=isEventPast(ev.date);
+    var bt=past?'completed':ev.badgeType;
+    var bl=past?'Приключило':ev.badge;
+    var cs=past?'opacity:0.55;filter:grayscale(0.4)':'';
+    var btn=ev.seatingEnabled
+      ?'<button class="event-btn" onclick="openSeating(\''+ev.id+'\')">Резервирай место →</button>'
+      :'<button class="event-btn" onclick="openBooking(\''+ev.id+'\',\'event\')">Запитване →</button>';
+    return '<div class="event-card" style="'+cs+'">'+
+      '<img class="event-img" src="'+ev.image+'" alt="'+ev.title+'" loading="lazy" decoding="async">'+
+      '<div class="event-overlay"></div>'+
+      '<div class="'+badgeClass(bt)+'">'+bl+'</div>'+
+      '<div class="event-info">'+
+        '<div class="event-meta">'+
+          '<span class="event-meta-item">'+ev.date+'</span>'+
+          '<span class="event-meta-item">'+ev.time+'</span>'+
+          '<span class="event-meta-item">'+ev.hall+'</span>'+
+          '<span class="event-meta-item">'+ev.capacity+'</span>'+
+        '</div>'+
+        '<div class="event-name">'+ev.title+'<span>'+ev.subtitle+'</span></div>'+
+        '<p class="event-desc">'+ev.desc+'</p>'+
+        '<div class="event-footer">'+
+          '<span class="event-price">'+(past?'':ev.price)+'</span>'+
+          '<div style="display:flex;align-items:center;gap:16px">'+
+            '<div class="event-tags">'+ev.tags.map(function(t){return '<span class="event-tag">'+t+'</span>';}).join('')+'</div>'+
+            (!past?btn:'')+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+}
+
+/* ── Render halls ── */
+function renderHalls(){
+  var grid = document.getElementById('hallsGrid');
+  grid.innerHTML = HALLS.map(function(h){
+    return '<div class="hall-card">'+
+      '<div class="hall-name">'+h.name+'</div>'+
+      '<div class="hall-name-bg">'+h.nameBg+'</div>'+
+      '<div class="hall-specs">'+
+        '<div class="hall-spec"><span class="hall-spec-val">'+h.capacity+'</span><span class="hall-spec-lbl">Капацитет</span></div>'+
+        '<div class="hall-spec"><span class="hall-spec-val">'+h.area+'</span><span class="hall-spec-lbl">Площ</span></div>'+
+      '</div>'+
+      '<p class="hall-desc">'+h.desc+'</p>'+
+      '<div class="hall-features">'+h.features.map(function(f){return '<div class="hall-feat">'+f+'</div>'}).join('')+'</div>'+
+      '<div style="margin-top:28px"><button class="event-btn" onclick="openBooking(\''+h.id+'\',\'hall\')">Поискайте оферта →</button></div>'+
+    '</div>';
+  }).join('');
+}
+
+/* ── Render packages ── */
+function renderPackages(){
+  var grid = document.getElementById('packagesGrid');
+  grid.innerHTML = PACKAGES.map(function(p){
+    return '<div class="pkg-card'+(p.highlight?' highlight':'')+'">'+
+      '<div class="pkg-name">'+p.nameEn+'</div>'+
+      '<div class="pkg-price">'+p.price+'</div>'+
+      '<div class="pkg-unit">'+p.unit+'</div>'+
+      '<div class="pkg-divider"></div>'+
+      '<div class="pkg-list">'+p.includes.map(function(i){return '<div class="pkg-item">'+i+'</div>'}).join('')+'</div>'+
+      '<button class="btn-pkg" onclick="openBooking(null,\'pkg\')">Изберете пакет</button>'+
+    '</div>';
+  }).join('');
+}
+
+var conferenceCardObserver = null;
+function initConferenceCards(){
+  var cards = document.querySelectorAll('[data-conf-card]');
+  if(!cards.length) return;
+
+  cards.forEach(function(card, index){
+    updateConferenceCardState(card, index === 0, false);
+  });
+
+  if(!('IntersectionObserver' in window)) return;
+
+  if(conferenceCardObserver){
+    conferenceCardObserver.disconnect();
+  }
+
+  conferenceCardObserver = new IntersectionObserver(function(entries){
+    var manualOpen = document.querySelector('[data-conf-card].is-expanded');
+    if(manualOpen) return;
+
+    entries.forEach(function(entry){
+      if(entry.isIntersecting && entry.intersectionRatio >= 0.55){
+        setConferencePeek(entry.target.getAttribute('data-conf-card'));
+      }
+    });
+  }, {threshold:[0.2,0.55,0.8]});
+
+  cards.forEach(function(card){
+    conferenceCardObserver.observe(card);
+  });
+}
+
+function updateConferenceCardState(card, peek, expanded){
+  if(!card) return;
+  card.classList.toggle('is-peek', !!peek);
+  card.classList.toggle('is-expanded', !!expanded);
+  card.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+
+  var toggleBtn = card.querySelector('[data-conf-toggle]');
+  if(toggleBtn){
+    toggleBtn.textContent = expanded ? 'Скрий детайли' : 'Детайли';
+    toggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  }
+}
+
+function setConferencePeek(id){
+  document.querySelectorAll('[data-conf-card]').forEach(function(card){
+    updateConferenceCardState(card, card.getAttribute('data-conf-card') === id, false);
+  });
+}
+
+function toggleConferenceCard(id, evt){
+  if(evt){
+    evt.preventDefault();
+    evt.stopPropagation();
+  }
+
+  var targetCard = document.querySelector('[data-conf-card="' + id + '"]');
+  if(!targetCard) return false;
+
+  var shouldExpand = !targetCard.classList.contains('is-expanded');
+  document.querySelectorAll('[data-conf-card]').forEach(function(card){
+    updateConferenceCardState(card, false, false);
+  });
+
+  if(shouldExpand){
+    updateConferenceCardState(targetCard, true, true);
+    targetCard.scrollIntoView({behavior:'smooth', block:'nearest'});
+  } else {
+    var firstCard = document.querySelector('[data-conf-card]');
+    if(firstCard){
+      updateConferenceCardState(firstCard, true, false);
+    }
+  }
+
+  return false;
+}
+
+/* ── Tab switcher ── */
+function updateHeroBackground(id){
+  var heroBg = document.getElementById('heroBg');
+  var nextImage = HERO_IMAGES[id];
+  if(!heroBg || !nextImage) return;
+  if(heroBg.dataset.currentHero === nextImage) return;
+
+  heroBg.classList.add('is-switching');
+  window.setTimeout(function(){
+    heroBg.style.backgroundImage = "url('" + nextImage + "')";
+    heroBg.dataset.currentHero = nextImage;
+    heroBg.classList.remove('is-switching');
+  }, 170);
+}
+
+function switchTab(id, btn){
+  if(!btn){
+    btn = document.querySelector('.tab-btn[data-tab="' + id + '"]');
+  }
+  if(!btn || !document.getElementById('panel-' + id)) return;
+  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+  updateHeroBackground(id);
+  updateFloatingCtaVisibility(id);
+  updateCategoryHash(id);
+  // scroll to tab section
+  var tabEl = document.getElementById('tabSection');
+  if(tabEl){ setTimeout(function(){ tabEl.scrollIntoView({behavior:'smooth',block:'start'}); }, 50); }
+  // re-init reveal for newly shown panel
+  initReveal();
+  if(id === 'conferences'){
+    setTimeout(initConferenceCards, 120);
+  }
+}
+
+function navigateToCategory(id){
+  switchTab(id);
+  return false;
+}
+
+function updateCategoryHash(id){
+  var hash = '#' + id;
+  if(window.location.hash === hash) return;
+  if(window.history && window.history.replaceState){
+    window.history.replaceState(null, '', hash);
+  } else {
+    window.location.hash = hash;
+  }
+}
+
+function applyCategoryFromHash(){
+  var map = {
+    '#conferences': 'conferences',
+    '#events': 'events',
+    '#halls': 'halls',
+    '#packages': 'halls'
+  };
+  var id = map[window.location.hash];
+  if(!id) return;
+
+  var btn = document.querySelector('.tab-btn[data-tab="' + id + '"]');
+  if(!btn || !document.getElementById('panel-' + id)) return;
+
+  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+  updateHeroBackground(id);
+  updateFloatingCtaVisibility(id);
+  initReveal();
+}
+
+/* ── Booking modal ── */
+var currentBookingContext = null;
+function setBookingStatus(message, type){
+  var el = document.getElementById('bookingStatus');
+  if(!el) return;
+  el.textContent = message || '';
+  el.className = 'form-status' + (type ? ' is-' + type : '');
+}
+
+function resetBookingForm(){
+  document.getElementById('fName').value = '';
+  document.getElementById('fPhone').value = '';
+  document.getElementById('fEmail').value = '';
+  document.getElementById('fGuests').value = '1';
+  document.getElementById('fMsg').value = '';
+  setBookingStatus('', '');
+}
+
+function bookingRequiredFieldsFilled(){
+  var name = document.getElementById('fName').value.trim();
+  var phone = document.getElementById('fPhone').value.trim();
+  var email = document.getElementById('fEmail').value.trim();
+  return !!(name && phone && email);
+}
+
+function setBookingSubmitState(isBusy){
+  var btn = document.getElementById('submitBookingBtn');
+  if(!btn) return;
+  btn.disabled = !!isBusy;
+  btn.textContent = isBusy ? 'Изпращане...' : 'Изпратете запитване';
+}
+
+function getBookingContextRecord(){
+  if(!currentBookingContext || !currentBookingContext.id) return null;
+  if(currentBookingContext.type === 'conf'){
+    return CONFERENCES.find(function(c){ return c.id === currentBookingContext.id; }) || null;
+  }
+  if(currentBookingContext.type === 'event'){
+    return EVENTS.find(function(e){ return e.id === currentBookingContext.id; }) || null;
+  }
+  if(currentBookingContext.type === 'hall'){
+    return HALLS.find(function(h){ return h.id === currentBookingContext.id; }) || null;
+  }
+  return null;
+}
+
+function buildBookingPayload(){
+  var record = getBookingContextRecord();
+  var payload = {
+    submittedAt: new Date().toISOString(),
+    pageUrl: window.location.href,
+    organizerInbox: SITE_CONFIG.leadInboxEmail || SITE_CONFIG.email,
+    publicEmail: SITE_CONFIG.email,
+    phone: SITE_CONFIG.phone,
+    bookingType: currentBookingContext ? currentBookingContext.type : 'general',
+    bookingId: currentBookingContext && currentBookingContext.id ? currentBookingContext.id : '',
+    eventTitle: document.getElementById('modalTitle').textContent || '',
+    eventSubtitle: document.getElementById('modalSubtitle').textContent || '',
+    guestName: document.getElementById('fName').value.trim(),
+    guestPhone: document.getElementById('fPhone').value.trim(),
+    guestEmail: document.getElementById('fEmail').value.trim(),
+    guests: document.getElementById('fGuests').value,
+    message: document.getElementById('fMsg').value.trim()
+  };
+
+  if(record){
+    payload.eventDate = record.date || '';
+    payload.eventTime = record.time || '';
+    payload.eventPrice = record.price || '';
+    payload.eventTags = (record.tags || []).join(', ');
+  }
+
+  return payload;
+}
+
+function buildBookingEmailBody(payload){
+  return 'Запитване за събитие: ' + payload.eventTitle +
+    '\nДетайли: ' + payload.eventSubtitle +
+    '\nИме: ' + payload.guestName +
+    '\nТелефон: ' + payload.guestPhone +
+    '\nИмейл: ' + payload.guestEmail +
+    '\nГости: ' + payload.guests +
+    (payload.eventDate ? '\nДата: ' + payload.eventDate : '') +
+    (payload.eventTime ? '\nЧас: ' + payload.eventTime : '') +
+    (payload.eventTags ? '\nТагове: ' + payload.eventTags : '') +
+    (payload.message ? '\nСъобщение: ' + payload.message : '');
+}
+
+async function sendBookingToWebhook(payload){
+  var formData = new FormData();
+  Object.keys(payload).forEach(function(key){
+    formData.append(key, payload[key] == null ? '' : String(payload[key]));
+  });
+
+  var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  var timeoutId = controller ? window.setTimeout(function(){
+    controller.abort();
+  }, 12000) : null;
+  var response;
+
+  try {
+    response = await fetch(SITE_CONFIG.registrationWebhookUrl, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: formData,
+      signal: controller ? controller.signal : undefined
+    });
+  } finally {
+    if(timeoutId){
+      window.clearTimeout(timeoutId);
+    }
+  }
+
+  if(!response || !response.ok){
+    throw new Error('webhook_http_error');
+  }
+
+  var result;
+  try {
+    result = await response.json();
+  } catch(error){
+    throw new Error('webhook_invalid_json');
+  }
+
+  if(!result || result.ok !== true){
+    throw new Error(result && result.error ? String(result.error) : 'webhook_rejected');
+  }
+
+  return result;
+}
+
+function validateCollection(name, items, requiredFields){
+  if(!Array.isArray(items)){
+    console.warn('[Event Center] ' + name + ' must be an array.');
+    return;
+  }
+
+  var ids = Object.create(null);
+  items.forEach(function(item, index){
+    if(!item || typeof item !== 'object'){
+      console.warn('[Event Center] ' + name + '[' + index + '] is invalid.');
+      return;
+    }
+
+    if(!item.id){
+      console.warn('[Event Center] ' + name + '[' + index + '] is missing id.');
+    } else if(ids[item.id]){
+      console.warn('[Event Center] duplicate id "' + item.id + '" in ' + name + '.');
+    } else {
+      ids[item.id] = true;
+    }
+
+    requiredFields.forEach(function(field){
+      var value = item[field];
+      var isEmptyArray = Array.isArray(value) && value.length === 0;
+      if(value == null || value === '' || isEmptyArray){
+        console.warn('[Event Center] ' + name + '[' + (item.id || index) + '] is missing "' + field + '".');
+      }
+    });
+  });
+}
+
+function validateEventCenterData(){
+  validateCollection('CONFERENCES', CONFERENCES, ['id', 'title', 'subtitle', 'date', 'time', 'price', 'desc', 'image', 'tags']);
+  validateCollection('EVENTS', EVENTS, ['id', 'title', 'subtitle', 'date', 'time', 'price', 'desc', 'image', 'tags']);
+  validateCollection('HALLS', HALLS, ['id', 'name', 'nameBg', 'capacity', 'area', 'desc', 'features']);
+}
+
+function updateFloatingCtaVisibility(id){
+  var cta = document.querySelector('.floating-cta');
+  if(!cta) return;
+  cta.classList.toggle('is-hidden', id !== 'halls');
+}
+
+function openBooking(id, type){
+  currentBookingContext = {id:id, type:type};
+  resetBookingForm();
+  setBookingSubmitState(false);
+  var title = 'Резервирайте зала';
+  var sub = 'Попълнете формата — ще се свържем с вас в рамките на 2 часа';
+
+  if(type === 'conf'){
+    var conf = CONFERENCES.find(function(c){ return c.id === id; });
+    if(conf){
+      title = conf.title;
+      sub = conf.date + ' · ' + conf.time + ' · ' + conf.price;
+    }
+  } else if(type === 'event'){
+    var ev = EVENTS.find(function(e){ return e.id === id; });
+    if(ev){
+      title = ev.title;
+      sub = ev.date + ' · ' + ev.time + ' · ' + ev.price;
+    }
+  } else if(type === 'hall'){
+    var hall = HALLS.find(function(h){ return h.id === id; });
+    if(hall){
+      title = 'Резервирайте зала';
+      sub = hall.capacity + ' · ' + hall.area;
+    }
+  }
+
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalSubtitle').textContent = sub;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeBooking(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleModalClick(e){
+  if(e.target === document.getElementById('modalOverlay')) closeBooking();
+}
+function submitBooking(){
+  if(!bookingRequiredFieldsFilled()){
+    setBookingStatus('Моля, попълнете ime, телефон и имейл.', 'error');
+    return;
+  }
+
+  var payload = buildBookingPayload();
+  var emailBody = buildBookingEmailBody(payload);
+  var organizerInbox = SITE_CONFIG.leadInboxEmail || SITE_CONFIG.email;
+  var mailUrl = 'mailto:' + organizerInbox +
+    '?subject=' + encodeURIComponent('Запитване: ' + payload.eventTitle) +
+    '&body=' + encodeURIComponent(emailBody);
+
+  setBookingSubmitState(true);
+  setBookingStatus('Изпращаме вашето запитване...', 'info');
+
+  Promise.resolve()
+    .then(function(){
+      if(SITE_CONFIG.registrationWebhookUrl){
+        return sendBookingToWebhook(payload);
+      }
+      throw new Error('webhook_not_configured');
+    })
+    .then(function(result){
+      if(!result || result.ok !== true){
+        throw new Error('webhook_unverified');
+      }
+      setBookingStatus('Запитването е изпратено успешно. Ще се свържем с вас възможно най-скоро.', 'success');
+      window.setTimeout(function(){
+        closeBooking();
+      }, 900);
+    })
+    .catch(function(error){
+      if(error && error.message !== 'webhook_not_configured'){
+        setBookingStatus('Автоматичното изпращане не беше потвърдено. Отваряме имейл като резервен вариант.', 'error');
+      } else {
+        setBookingStatus('Автоматичната обработка още не е свързана. Отваряме имейл като временен вариант.', 'info');
+      }
+      window.setTimeout(function(){
+        window.location.href = mailUrl;
+        closeBooking();
+      }, 450);
+    })
+    .finally(function(){
+      setBookingSubmitState(false);
+    });
+}
+
+/* ── Mobile menu ── */
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('mobOverlay').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('mobOverlay').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function toggleMobSub(el){
+  el.classList.toggle('open');
+  var sub = el.nextElementSibling;
+  if(sub) sub.classList.toggle('open');
+}
+
+/* ── Reveal on scroll ── */
+function initReveal(){
+  var reveals = document.querySelectorAll('.reveal:not(.observed)');
+  if(!('IntersectionObserver' in window)){
+    reveals.forEach(function(r){ r.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); }
+    });
+  }, {threshold: 0.1});
+  reveals.forEach(function(r){ r.classList.add('observed'); io.observe(r); });
+}
+
+/* ══ SEATING SYSTEM ══ */
+var SM={ctx:null,sel:new Set()};
+function openSeating(eid){
+  var ev=EVENTS.find(function(e){return e.id===eid;});
+  if(!ev){openBooking(eid,'event');return;}
+  SM.ctx={eid:eid,title:ev.title,sub:ev.date+' · '+ev.time+' · '+ev.price,booked:ev.bookedSeats||[],rows:7,cols:10,aisleAfter:4};
+  SM.sel=new Set();
+  document.getElementById('smTitle').textContent=ev.title;
+  document.getElementById('smSub').textContent=SM.ctx.sub;
+  ['smName','smPhone','smEmail','smMsg'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('smStatus').textContent='';
+  document.getElementById('smStatus').className='sm-status';
+  document.getElementById('smBtn').disabled=false;
+  smRender();
+  document.getElementById('smOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function smClose(){document.getElementById('smOverlay').classList.remove('open');document.body.style.overflow='';}
+function smOverlayClick(e){if(e.target===document.getElementById('smOverlay'))smClose();}
+function smRL(r){return String.fromCharCode(65+r);}
+function smSID(r,col){return smRL(r)+(col+1);}
+function smRender(){
+  var g=document.getElementById('smGrid');
+  if(!g||!SM.ctx)return;
+  g.innerHTML='';
+  for(var r=0;r<SM.ctx.rows;r++){
+    var row=document.createElement('div');row.className='sm-row';
+    var lbl=document.createElement('div');lbl.className='sm-row-lbl';lbl.textContent=smRL(r);row.appendChild(lbl);
+    for(var col=0;col<SM.ctx.cols;col++){
+      if(SM.ctx.aisleAfter&&col===SM.ctx.aisleAfter){var ai=document.createElement('div');ai.className='sm-aisle';row.appendChild(ai);}
+      var sid=smSID(r,col);
+      var seat=document.createElement('div');seat.className='sm-seat';
+      var taken=SM.ctx.booked.indexOf(sid)!==-1;
+      var isSel=SM.sel.has(sid);
+      seat.classList.add(taken?'taken':isSel?'selected':'free');
+      var num=document.createElement('span');num.className='sn';num.textContent=col+1;seat.appendChild(num);
+      if(!taken){seat.addEventListener('click',(function(s){return function(){smToggle(s);};})(sid));}
+      row.appendChild(seat);
+    }
+    g.appendChild(row);
+  }
+  smUpdSummary();
+}
+function smToggle(sid){if(SM.sel.has(sid))SM.sel.delete(sid);else SM.sel.add(sid);smRender();}
+function smUpdSummary(){
+  var n=SM.sel.size;
+  document.getElementById('smEmpty').style.display=n?'none':'block';
+  document.getElementById('smCountWrap').style.display=n?'block':'none';
+  if(n){document.getElementById('smCountVal').textContent=n+(n===1?' място':' мяста');document.getElementById('smSeatsList').textContent=Array.from(SM.sel).sort().join(', ');}
+}
+function smSetSt(m,t){var el=document.getElementById('smStatus');el.textContent=m;el.className='sm-status'+(t?' '+t:'');}
+function smSubmit(){
+  var name=document.getElementById('smName').value.trim();
+  var phone=document.getElementById('smPhone').value.trim();
+  var email=document.getElementById('smEmail').value.trim();
+  var msg=document.getElementById('smMsg').value.trim();
+  if(!SM.sel.size){smSetSt('Моля, изберете поне едно място.','err');return;}
+  if(!name||!phone||!email){smSetSt('Моля, попълнете име, тел. и имейл.','err');return;}
+  var seats=Array.from(SM.sel).sort();
+  var body='Резервация на места\nСъбитие: '+SM.ctx.title+'\nДата: '+SM.ctx.sub+'\nМеста: '+seats.join(', ')+' ('+seats.length+' бр.)\n\nИме: '+name+'\nТел: '+phone+'\nИмейл: '+email+(msg?'\nСъобщ.: '+msg:'');
+  var mail='mailto:'+(SITE_CONFIG.leadInboxEmail||SITE_CONFIG.email)+'?subject='+encodeURIComponent('Резервация: '+SM.ctx.title+' · '+seats.join(', '))+'&body='+encodeURIComponent(body);
+  document.getElementById('smBtn').disabled=true;smSetSt('Изпращаме...','inf');
+  if(SITE_CONFIG.seatingWebhookUrl){
+    var fd=new FormData();
+    var pl={action:'bookSeats',eventId:SM.ctx.eid,eventTitle:SM.ctx.title,eventSub:SM.ctx.sub,seats:seats.join(', '),seatsCount:String(seats.length),guestName:name,guestPhone:phone,guestEmail:email,message:msg,submittedAt:new Date().toISOString()};
+    Object.keys(pl).forEach(function(k){fd.append(k,pl[k]);});
+    fetch(SITE_CONFIG.seatingWebhookUrl,{method:'POST',mode:'cors',body:fd}).then(function(r){return r.json();}).then(function(res){if(!res||res.ok!==true)throw new Error();smDone(seats);}).catch(function(){window.location.href=mail;smDone(seats);});
+  } else {window.location.href=mail;setTimeout(function(){smDone(seats);},600);}
+}
+function smDone(seats){
+  seats.forEach(function(s){SM.ctx.booked.push(s);});SM.sel=new Set();smRender();
+  document.getElementById('smBtn').disabled=false;
+  smSetSt('✓ Заявката е изпратена. Ще получите потвърждение по имейл.','ok');
+  ['smName','smPhone','smEmail','smMsg'].forEach(function(id){document.getElementById(id).value='';});
+}
+
+</script>
+</body>
+</html>
